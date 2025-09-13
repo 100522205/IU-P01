@@ -1,27 +1,44 @@
 <html>
 <head>
-
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>Nombre (izq) <nav>Links (centro)</nav> Logo e Idiomas (dcha)</header>
+    <header><div class="izq">Nombre (izq)</div><nav class="centro">Links (centro)</nav><div class="dcha">Logo e Idiomas (dcha)</div></header>
     <main>
-        <section>Bloque superior</section><article>Bloque inferior</article>
-        <aside><form>
-            <label for="Usuario">Usuario:</label><br>
-            <input type="text" id="Usuario" name="Usuario"><br>
-            <label for="Contraseña">Contraseña:</label><br>
-            <input type="text" id="Contraseña" name="Contraseña"><br>
-            <input type="checkbox" id="Recordar" name="Recordar">
-            <label for="Recordar"> Recordar mis credenciales</label><br>
-            <input type="button" id="Inicio" name="Iniciar Sesión" value="Iniciar Sesión">
-            <input type="button" id="Registro" name="Registro" value="Registro">
+        <div class="left">
+            <section>Bloque superior</section>
+            <article>Bloque inferior</article>
+        </div>
+        <aside>
+            <div>
+            <form>
+                <label for="Usuario">Usuario:</label><br>
+                <input type="text" id="Usuario" name="Usuario"><br>
+                <label for="Contraseña">Contraseña:</label><br>
+                <input type="text" id="Contraseña" name="Contraseña"><br>
+                <input type="checkbox" id="Recordar" name="Recordar">
+                <label for="Recordar"> Recordar mis credenciales</label><br>
+                <input type="button" id="Inicio" name="Iniciar Sesión" value="Iniciar Sesión">
+                <input type="button" id="Registro" name="Registro" value="Registro">
 
-        </form>
-        <p>Top destinos<br><ul style="list-style-type:none;"><li>uno</li><li>dos</li><li>tres</li></ul></p></aside>
-        <p>Consejos rápidos<br><ul style="list-style-type:none;"><li>uno</li><li>dos</li><li>tres</li></ul></p></aside>
-        <p>Próximos encuentros<br><ul style="list-style-type:none;"><li>uno</li><li>dos</li><li>tres</li></ul></p></aside>
+            </form>
+            </div>
+            <hr>
+            <div>
+                <h3>Top destinos</h3>
+                <p><ul style="list-style-type:none;"><li>uno</li><li>dos</li><li>tres</li></ul></p>
+                <h3>Consejos rápidos</h3>
+                <p><ul style="list-style-type:none;"><li>uno</li><li>dos</li><li>tres</li></ul></p>
+                <h3>Próximos encuentros</h3>
+                <p><ul style="list-style-type:none;"><li>uno</li><li>dos</li><li>tres</li></ul></p>
+            </div>
+        </aside>
     </main>
-    <footer>Copyright (izq) Enlaces ficticios (centro) Iconos (dcha) </footer>
+    <footer>
+        <div class="izq">Copyright (izq)</div>
+        <div class="centro">Enlaces ficticios (centro)</div>
+        <div class="dcha">Iconos (dcha)</div>
+    </footer>
 
 </body>
 

@@ -1,0 +1,65 @@
+@font-face {
+  font-family: "Chinese Rocks";
+  src: url("chinese\ rocks\ rg.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+    font-family: "Chinese Rocks", sans-serif;
+}
+header {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: #CB0101;
+    padding: 10px;
+}
+.izq{
+    text-align: left;
+}
+.centro {
+    text-align: center;
+}
+.dcha {
+    text-align: right;
+}
+main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+main .left {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    background-color: #CB0101;
+    font-size: 30px;
+    text-align: center;
+}
+.left section,
+.left article {
+    align-self: stretch;
+    place-content: center;
+    background-color: black;
+    color: #f1f1f1;
+    padding: 10px;
+}
+aside{
+    display: grid;
+    grid-template-rows: auto auto;
+    background-color: chartreuse;
+    padding: 10px;
+}
+aside > div {
+    background-color: #f1f1f1;
+    padding: 10px;
+}
+aside form {
+    text-align: center;
+}
+input[type="button"] {
+    font-family: "Chinese Rocks", sans-serif;
+}
+footer {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: #CB0101;
+    padding: 10px;
+}
