@@ -6,22 +6,52 @@
 }
 body {
     font-family: "Chinese Rocks", sans-serif;
+    display: grid;
+    grid-template-rows: 60px 1fr 40px; /* header - main - footer */
+    height:100vh;
+    margin:0;
 }
 header {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 1fr 1fr 1fr;
     background-color: #CB0101;
-    padding: 10px;
-}
-.izq{
-    text-align: left;
-}
-.centro {
+    padding: 5px;
     text-align: center;
 }
-.dcha {
-    text-align: right;
+header > div,nav{
+    place-content: center;
 }
+header > div > p{
+    margin: 0;
+}
+
+.main_container1 {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+}
+
+.main_container1 > div {
+  display: grid;
+  place-content: center;
+}
+
+.main_container2 {
+    display: grid;
+    grid-template-rows: 1fr 9fr;
+}
+
+.main_container2 > div {
+  display: grid;
+  place-content: center;
+}
+
+.main_container1 > div > *,
+.main_container2 > div > * {
+    margin: 0; /* Removes unwanted default margins from <p> tags */
+    max-width: 100%; /* Prevents content from being wider than its container */
+    max-height: 100%; /* Prevents content from being taller than its container */
+}
+
 main {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -36,7 +66,6 @@ main .left {
 .left section,
 .left article {
     align-self: stretch;
-    place-content: center;
     background-color: black;
     color: #f1f1f1;
     padding: 10px;
@@ -46,6 +75,7 @@ aside{
     grid-template-rows: auto auto;
     background-color: chartreuse;
     padding: 10px;
+    text-align: center;
 }
 aside > div {
     background-color: #f1f1f1;
@@ -54,6 +84,12 @@ aside > div {
 aside form {
     text-align: center;
 }
+
+aside ol {
+  list-style-position: inside;
+  padding: 0; /* Good practice to remove default browser spacing */
+}
+
 input[type="button"] {
     font-family: "Chinese Rocks", sans-serif;
 }
