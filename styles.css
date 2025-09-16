@@ -4,17 +4,7 @@
   font-weight: normal;
   font-style: normal;
 }
-* {
-  margin: 0;
-  box-sizing: border-box;
-}
-body {
-    font-family: "Chinese Rocks", sans-serif;
-    display: grid;
-    grid-template-rows: 60px 1fr 40px; /* header - main - footer */
-    height:100vh;
-    margin:0;
-}
+
 header {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -22,30 +12,87 @@ header {
     padding: 5px;
     text-align: center;
 }
+
 header > div,nav{
     place-content: center;
 }
-header > div > p{
-    margin: 0;
+
+body {
+    font-family: "Chinese Rocks", sans-serif;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 60px 1fr 40px; /* header - main - footer */
+    margin:0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+main > .main_content,
+main > aside {
+    overflow-y: auto; /* Adds a scrollbar ONLY if needed */
+    min-height: 0;    /* Allows the sections to shrink properly in the grid */
+}
+
+.main_content {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    font-size: 30px;
+    text-align: center;
+}
+
+.main_content section,
+.main_content article {
+    /*align-self: stretch;*/
+    background-color: #C8A272;
+    color: black;
+    padding: 10px;
 }
 
 .main_container1 {
     display: grid;
-    grid-template-rows: 1fr 9fr;
-    gap: 10px;
+    grid-template-rows: 1fr 3fr;
 }
 
 .main_container1 > div {
   display: grid;
   place-content: center;
   background-color:#AF814E;
-  
+}
+
+.carrusel_content{
+    background-image: url(carrusel.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: 100%;
+}
+
+.banner{
+    background-image: url(banner.jpg);
+    background-position: center;
+    background-repeat:no-repeat;
+    background-size: 100%;
+
+}
+
+.carrusel{
+    padding:10px;
+    display: grid;
+    grid-template-columns: 30px 1fr 30px;
+
 }
 
 .main_container2 {
     display: grid;
     grid-template-rows: 1fr 9fr;
-    gap: 10px;
 }
 
 .main_container2 > div {
@@ -54,45 +101,20 @@ header > div > p{
   background-color: #AF814E;
 }
 
-.main_container1 > div > *,
-.main_container2 > div > * {
-    margin: 0; /* Removes unwanted default margins from <p> tags */
-    max-width: 100%; /* Prevents content from being wider than its container */
-    max-height: 100%; /* Prevents content from being taller than its container */
-}
-
-main {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-}
-main .left {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    background-color: #CB0101;
-    font-size: 30px;
-    text-align: center;
-}
-.left section,
-.left article {
-    align-self: stretch;
-    background-color: #C8A272;
-    color: black;
-    padding: 10px;
-}
 .cuadricula{
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 10px;
+    grid-template-rows: 1fr 1fr;
 }
 .cuadricula > div {
     background-color: #C8A272;
 }
+
 aside{
     display: grid;
     grid-template-rows: 1fr 2fr;
     background-color: #AF814E;
     padding: 30px;
     text-align: center;
-    gap: 10px;
 }
 aside > div {
     background-color: #C8A272;
@@ -112,6 +134,15 @@ aside ol {
 }
 aside ul {
     padding: 0;
+}
+
+.form_container {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.form_container > * {
+    padding: 5px;
 }
 
 input[type="button"] {
