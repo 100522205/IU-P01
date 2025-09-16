@@ -4,6 +4,10 @@
   font-weight: normal;
   font-style: normal;
 }
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
 body {
     font-family: "Chinese Rocks", sans-serif;
     display: grid;
@@ -27,22 +31,27 @@ header > div > p{
 
 .main_container1 {
     display: grid;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr 9fr;
+    gap: 10px;
 }
 
 .main_container1 > div {
   display: grid;
   place-content: center;
+  background-color:#AF814E;
+  
 }
 
 .main_container2 {
     display: grid;
     grid-template-rows: 1fr 9fr;
+    gap: 10px;
 }
 
 .main_container2 > div {
   display: grid;
   place-content: center;
+  background-color: #AF814E;
 }
 
 .main_container1 > div > *,
@@ -66,28 +75,43 @@ main .left {
 .left section,
 .left article {
     align-self: stretch;
-    background-color: black;
-    color: #f1f1f1;
+    background-color: #C8A272;
+    color: black;
     padding: 10px;
+}
+.cuadricula{
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+}
+.cuadricula > div {
+    background-color: #C8A272;
 }
 aside{
     display: grid;
-    grid-template-rows: auto auto;
-    background-color: chartreuse;
-    padding: 10px;
+    grid-template-rows: 1fr 2fr;
+    background-color: #AF814E;
+    padding: 30px;
     text-align: center;
+    gap: 10px;
 }
 aside > div {
-    background-color: #f1f1f1;
+    background-color: #C8A272;
     padding: 10px;
 }
+
 aside form {
-    text-align: center;
+    justify-self: stretch;      /* que se estire horizontalmente */
+    display: grid;              /* para organizar inputs */
+    justify-content: center;    /* centra verticalmente dentro del form */
+    height: 100%;               /* muy importante: llena su celda */
 }
 
 aside ol {
   list-style-position: inside;
   padding: 0; /* Good practice to remove default browser spacing */
+}
+aside ul {
+    padding: 0;
 }
 
 input[type="button"] {
@@ -95,7 +119,8 @@ input[type="button"] {
 }
 footer {
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: 1fr 1fr 1fr;
     background-color: #CB0101;
-    padding: 10px;
+    padding: 5px;
+    text-align: center;
 }
