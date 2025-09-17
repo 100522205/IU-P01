@@ -11,6 +11,8 @@ header {
     background-color: #CB0101;
     padding: 5px;
     text-align: center;
+    border-style: outset;
+    border-color: #CB0101;
 }
 
 header > div,nav{
@@ -209,8 +211,10 @@ footer {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     background-color: #CB0101;
-    padding: 5px;
     text-align: center;
+    border-style: outset;
+    border-color: #CB0101;
+
 }
 
 .white_text{
@@ -219,4 +223,11 @@ footer {
 
 h1,h2,h3,p{
     letter-spacing: 0.07em;
+}
+.redes,
+.izq,
+.centro {
+    font-size: 30px;
+    text-align: center;
+    vertical-align: middle;
 }
