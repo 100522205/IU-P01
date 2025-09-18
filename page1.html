@@ -5,7 +5,16 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <header><div class="izq">Nombre (izq)</div><nav class="centro">Links (centro)</nav><div class="redes">Logo e Idiomas (dcha)</div></header>
+    <header>
+        <div class="header_izq izq">Mochileros por el Oeste</div>
+        <nav class="navbar">
+            <a href="#">Inicio</a>
+            <a href="#">Experiencias</a>
+            <a href="#">Consejos</a>
+            <a href="#">Foro</a>
+            <a href="#">Contacto</a>
+        </nav>
+        <div class="header_dcha redes">Logo e Idiomas (dcha)</div></header>
     <main>
         
         <section class="main_content">
@@ -56,21 +65,24 @@
         <aside>
             
             <div>
-            <form class="form_container">
-                <label for="Usuario">Usuario:</label>
-                <input type="text" id="Usuario" name="Usuario">
-                <label for="Contraseña">Contraseña:</label>
-                <input type="password" id="Contraseña" name="Contraseña">
+            <form>
+                <label for="Usuario noi">Usuario:</label>
+                <div><input type="text" id="Usuario" name="Usuario"></div>
+                <label for="Contraseña noi">Contraseña:</label>
+                <div><input type="password" id="Contraseña" name="Contraseña"></div>
                 <div>
+                    <label for="Recordar noi" class="recordar"> Recordar mis credenciales</label>
                     <input type="checkbox" id="Recordar" name="Recordar">
-                    <label for="Recordar"> Recordar mis credenciales</label>
                 </div>
-                <input type="submit" id="Inicio" name="Iniciar Sesión" value="Iniciar Sesión">
-                <input type="button" id="Registro" name="Registro" value="Registro">
+                <br>
+                <div>
+                    <input type="submit" id="Inicio" name="Iniciar Sesión" value="Iniciar Sesión">
+                    <input type="button" id="Registro" name="Registro" value="Registro">
+                </div>
 
             </form>
             </div>
-            <div>
+            <div class="top">
                 <h3>Top destinos</h3>
                 <ol>
                     <li>uno</li>
@@ -78,20 +90,33 @@
                     <li>tres</li>
                 </ol>
                 <h3>Consejos rápidos</h3>
-                <p><ul style="list-style-type:none;"><li>uno</li><li>dos</li><li>tres</li></ul></p>
+                <ul style="list-style-type:none;"><li>uno</li><li>dos</li><li>tres</li></ul>
                 <h3>Próximos encuentros</h3>
-                <p><ul style="list-style-type:none;"><li>uno</li><li>dos</li><li>tres</li></ul></p>
+                <ul style="list-style-type:none;"><li>uno</li><li>dos</li><li>tres</li></ul>
             </div>
         </aside>
     </main>
     <footer>
         <div class="izq">Copyright (izq)</div>
-        <div class="centro">Enlaces ficticios (centro)</div>
+        <div class="centro navbar">
+            <a href="#">Sobre nosotros.</a>
+            <a href="#">Política de privacidad.</a>
+            <a href="#">Ayuda</a>
+        </div>
         <div class="redes">
             <i class="fa fa-youtube-play"></i>
             <i class="fa fa-instagram"></i>
             <i class="fa fa-twitter"></i>
         </div>
+        <form class="subscribe_form">
+            <div class="subs">       
+                <label for="email noi">Email:</label>
+                <input type="text" id="email" name="email">
+            </div>
+            <div>
+                <input type="submit" id="Subs" name="Subscribe" value="Subscribe">
+            </div>          
+        </form>           
     </footer>
 
 </body>
