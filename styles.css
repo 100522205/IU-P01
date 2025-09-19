@@ -37,6 +37,7 @@ header > div,nav {
   text-decoration: none;
   text-align: center;
   font-size: 20px;
+  justify-items: center;
 }
 
 /* Change color on hover */
@@ -93,10 +94,6 @@ main > aside {
 
 .carrusel_content{
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center; /* esto centra al texto en toda la celda */
-    overflow: hidden; /* evita que sobresalga */
 }
 .carrusel_content img {
     position: absolute;
@@ -108,17 +105,22 @@ main > aside {
 }
 .text {
   position: absolute;
+  color: white;
+  font-size: 80%;
 }
 
 /* esquinas */
 .top-left {
-  top: 10px;
-  left: 10px;
+  top: 5%;
+  left: 2%;
+  display: flex;
+  flex-direction: column;
+  /* que los elementos estén pegados a la izq */
 }
 
 .top-right {
-  top: 10px;
-  right: 10px;
+  top: 5%;
+  right: 2%;
 }
 
 .bottom-left {
@@ -253,9 +255,10 @@ h1,h2,h3,p{
 .redes,
 .izq,
 .centro {
-    font-size: 30px;
+    font-size: 120%;
     text-align: center;
-    vertical-align: middle;
+    justify-items: center;
+    color: white;
 }
 .subs {
     display: flex;
@@ -271,4 +274,8 @@ h1,h2,h3,p{
 footer div form {
     display: flex;
     justify-content: space-between;
+}
+
+.titulo {
+    color: black;
 }
