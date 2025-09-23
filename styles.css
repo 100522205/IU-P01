@@ -45,7 +45,10 @@ header > div,nav {
   background-color: #ddd;
   color: black;
 }
-
+select {
+    font-family: inherit;
+    width: 100%;
+}
 
 input[type="submit"], input[type="button"]{
     font-family: inherit; /*Hace que se herede la fuente de body en vez de cambiarse*/
@@ -108,6 +111,22 @@ main > aside {
   color: white;
   font-size: 80%;
 }
+.background {
+  background-color: rgba(128, 128, 128, 0.24);
+  padding: 1.4%;
+  border-radius: 4%;
+}
+.round {
+  border-radius: 17%;
+}
+.name {
+  background-color: #af824eae;
+  padding: 3%;
+  border-radius: 10%;
+}
+.text input[type="button"] {
+    font-size: 50%;
+}
 
 /* esquinas */
 .top-left {
@@ -115,7 +134,7 @@ main > aside {
   left: 2%;
   display: flex;
   flex-direction: column;
-  /* que los elementos estén pegados a la izq */
+  text-align: left;
 }
 
 .top-right {
@@ -129,8 +148,8 @@ main > aside {
 }
 
 .bottom-right {
-  bottom: 10px;
-  right: 10px;
+  bottom: 5%;
+  right: 2%;
 }
 
 .center {
@@ -154,6 +173,10 @@ main > aside {
 /*le añado sombra beige al texto para resaltarlo, con 30% opacidad*/
 .banner_text{
     text-shadow: 0 0 5px rgba(245, 245, 220, 30);
+}
+
+.heart {
+    text-shadow: 0 0 5px black;
 }
 
 .carrusel{

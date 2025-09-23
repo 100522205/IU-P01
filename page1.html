@@ -14,7 +14,17 @@
             <a href="#">Foro</a>
             <a href="#">Contacto</a>
         </nav>
-        <div class="header_dcha">Logo e Idiomas (dcha)</div></header>
+        <div class="header_dcha">
+            <div>Logo</div>
+            <div>
+                <form>
+                    <select id="language" name="language">
+                    <option value="es">ES</option>
+                    <option value="en">EN</option>
+                    </select>
+                </form>
+            </div>
+    </header>
     <main>
         
         <section class="main_content">
@@ -25,40 +35,112 @@
                 </div>
                 <div class="carrusel_content">
                     <img src="carrusel.jpg" alt="Cinque Terre" width="624.26" height="285.8">
-                    <div class="text top-left">
-                        <div>Servicio Nocturno</div>
-                        <div>Descubre New Hanover a la luz de las estrellas</div>
+                    <div class="text top-left background">
+                            Servicio Nocturno
+                        <br>
+                            Descubre New Hanover a la luz de las estrellas
                     </div>
-                    <div class="text top-right">30$</div>
+                    <div class="text top-right background round">30$</div>
                 </div>
             </article>
             <article class="main_container2">
                  <div class="cuadricula">
-                    <div>
+                    <div class="carrusel_content">
                         <img src="foto1.jpg" alt="Foto1">
+                        <div class="text top-left name">
+                            Valentine
+                        </div>
+                        <div class="text bottom-right">
+                            <input type="button" id="Ver más" name="Ver más" value="Ver más">
+                        </div>
+                        <div class="text top-right heart">
+                            <i class="fa fa-heart"></i>
+                        </div>
                     </div>
-                    <div>
-                        <img src="foto2.jpg" alt="Foto2">
+                    <div class="carrusel_content">
+                        <img src="foto2.jpg" alt="Foto1">
+                        <div class="text top-left name">
+                            Rhodes
+                        </div>
+                        <div class="text bottom-right">
+                            <input type="button" id="Ver más" name="Ver más" value="Ver más">
+                        </div>
+                        <div class="text top-right heart">
+                            <i class="fa fa-heart"></i>
+                        </div>
                     </div>
-                    <div>
-                        <img src="foto3.jpg" alt="Foto3">
+                    <div class="carrusel_content">
+                        <img src="foto3.jpg" alt="Foto1">
+                        <div class="text top-left name">
+                            Strawberry
+                        </div>
+                        <div class="text bottom-right">
+                            <input type="button" id="Ver más" name="Ver más" value="Ver más">
+                        </div>
+                        <div class="text top-right heart">
+                            <i class="fa fa-heart"></i>
+                        </div>
                     </div>
-                    <div>
-                        <img src="foto4.jpg" alt="Foto4">
+                    <div class="carrusel_content">
+                        <img src="foto4.jpg" alt="Foto1">
+                        <div class="text top-left name">
+                            Blackwater
+                        </div>
+                        <div class="text bottom-right">
+                            <input type="button" id="Ver más" name="Ver más" value="Ver más">
+                        </div>
+                        <div class="text top-right heart">
+                            <i class="fa fa-heart"></i>
+                        </div>
                     </div>
-                    <div>
-                        <img src="foto5.jpg" alt="Foto5">
+                    <div class="carrusel_content">
+                        <img src="foto5.jpg" alt="Foto1">
+                        <div class="text top-left name">
+                            Saint-Denis
+                        </div>
+                        <div class="text bottom-right">
+                            <input type="button" id="Ver más" name="Ver más" value="Ver más">
+                        </div>
+                        <div class="text top-right heart">
+                            <i class="fa fa-heart"></i>
+                        </div>
                     </div>
-                    <div>
-                        <img src="foto6.jpg" alt="Foto6">
+                    <div class="carrusel_content">
+                        <img src="foto6.jpg" alt="Foto1">
+                        <div class="text top-left name">
+                            Annesburg
+                        </div>
+                        <div class="text bottom-right">
+                            <input type="button" id="Ver más" name="Ver más" value="Ver más">
+                        </div>
+                        <div class="text top-right heart">
+                            <i class="fa fa-heart"></i>
+                        </div>
                     </div>
-                    <div>
-                        <img src="foto7.jpg" alt="Foto7">
+                    <div class="carrusel_content">
+                        <img src="foto7.jpg" alt="Foto1">
+                        <div class="text top-left name">
+                            Van Horn
+                        </div>
+                        <div class="text bottom-right">
+                            <input type="button" id="Ver más" name="Ver más" value="Ver más">
+                        </div>
+                        <div class="text top-right heart">
+                            <i class="fa fa-heart"></i>
+                        </div>
                     </div>
-                    <div>
-                        <img src="foto8.jpg" alt="Foto8">
+                    <div class="carrusel_content">
+                        <img src="foto8.jpg" alt="Foto1">
+                        <div class="text top-left name">
+                            Tumbleweed
+                        </div>
+                        <div class="text bottom-right">
+                            <input type="button" id="Ver más" name="Ver más" value="Ver más">
+                        </div>
+                        <div class="text top-right heart">
+                            <i class="fa fa-heart"></i>
+                        </div>
                     </div>
-                
                 </div>
             </article>
         </section>
@@ -85,14 +167,22 @@
             <div class="top">
                 <h3>Top destinos</h3>
                 <ol>
-                    <li>uno</li>
-                    <li>dos</li>
-                    <li>tres</li>
+                    <li>Saint-Denis</li>
+                    <li>Annesburg</li>
+                    <li>Blackwater</li>
                 </ol>
                 <h3>Consejos rápidos</h3>
-                <ul style="list-style-type:none;"><li>uno</li><li>dos</li><li>tres</li></ul>
+                <ul style="list-style-type:none;">
+                    <li>Equipa tu revolver en todo momento</li>
+                    <li>Protege tu equipaje a toda costa</li>
+                    <li>tres</li>
+                </ul>
                 <h3>Próximos encuentros</h3>
-                <ul style="list-style-type:none;"><li>uno</li><li>dos</li><li>tres</li></ul>
+                <ul style="list-style-type:none;">
+                    <li>Valentine 23/8</li>
+                    <li>Rhodes 11/9</li>
+                    <li>Van Horn 2/10</li>
+                </ul>
             </div>
         </aside>
     </main>
