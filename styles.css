@@ -23,6 +23,8 @@ header > div,nav {
 }
 .header_dcha {
     padding-right: 2%;
+    display:flex;
+    align-items: center;
 }
 /* Top navigation bar */
 .navbar {
@@ -64,6 +66,13 @@ body {
 img {
     max-width: 100%;
     height: auto;
+}
+
+.logo{
+    max-height: 7vh;
+    width:auto;
+    filter:invert(1); /*Convierte la imagen originalmente blanca a lo contrario, negro*/
+    padding-right: 5%;
 }
 
 main {
@@ -283,6 +292,14 @@ h1,h2,h3,p{
     justify-items: center;
     color: white;
 }
+
+.izq_negro{
+    font-size: 120%;
+    text-align: center;
+    justify-items: center;
+    color: black;
+}
+
 .subs {
     display: flex;
     flex-direction: column;
