@@ -8,11 +8,12 @@
 header {
     display: flex;
     background-color: #CB0101;
-    padding: 5px;
+    padding: 0.5%;
     text-align: center;
     border-style: outset;
     border-color: #CB0101;
     justify-content: space-between;
+    height:7.75vh;    
 }
 
 header > div,nav {
@@ -26,19 +27,24 @@ header > div,nav {
     display:flex;
     align-items: center;
 }
+.header_dcha > form {
+    width:7vh;
+    min-width: 5vh;
+}
+
+
 /* Top navigation bar */
 .navbar {
   display: flex;
-  gap: 30px;
 }
 
 /* Navigation bar links */
 .navbar a {
   color: white;
-  padding: 14px 20px;
+  padding: 2vh 4vw;
   text-decoration: none;
   text-align: center;
-  font-size: 20px;
+  font-size: 125%;
   justify-items: center;
 }
 
@@ -89,7 +95,7 @@ main > aside {
 .main_content {
     display: grid;
     grid-template-rows: 1fr 1fr;
-    font-size: 30px;
+    font-size: 170%;
     text-align: center;
 }
 
@@ -98,15 +104,23 @@ main > aside {
     grid-template-rows: 1fr 3fr;
 }
 
-.main_container1 > div {
+.main_container1 .carrusel_content,
+.main_container1 .banner{
     display: grid;
     place-content: center;
     background-color:#AF814E;
 }
 
+.padding_carrusel{
+    background-color: #C8A272;
+    padding: .5%;
+}
+
 .carrusel_content{
     position: relative;
+    height:100%;
 }
+
 .carrusel_content img {
     position: absolute;
     inset: 0; /* ocupa toda la celda */
@@ -151,21 +165,10 @@ main > aside {
   right: 2%;
 }
 
-.bottom-left {
-  bottom: 10px;
-  left: 10px;
-}
-
 .bottom-right {
   bottom: 5%;
   right: 2%;
 }
-
-.center {
-    position: relative;
-    z-index: 1;
-}
-
 
 .banner{
     background-image: url(banner.jpg);
@@ -181,25 +184,21 @@ main > aside {
 
 /*le añado sombra beige al texto para resaltarlo, con 30% opacidad*/
 .banner_text{
-    text-shadow: 0 0 5px rgba(245, 245, 220, 30);
+    text-shadow: 0 0 0.2em rgba(245, 245, 220, 30);
 }
 
 .heart {
-    text-shadow: 0 0 5px black;
-}
-
-.carrusel{
-    padding:10px;
-    display: grid;
-    grid-template-columns: 30px 1fr 30px;
-
+    text-shadow: 0 0 0.2em black;
+    top:6%;
+    right:6%;
+    font-size: 120%;
 }
 
 .main_container2 {
     display: grid;
     grid-template-rows: auto;
     min-height: 0;
-    padding:5px;
+    padding:0.5%;
     background-color: #C8A272;
 }
 
@@ -212,9 +211,9 @@ main > aside {
 .cuadricula{
     display: grid;
     grid-template-columns: repeat(4, 1fr); 
-    grid-template-rows: 200px 200px;  
-    gap: 10px;
-    padding:10px;
+    grid-template-rows: 24.2vh 24.2vh;  
+    gap: 1.5%;
+    padding:1%;
 }
 .cuadricula > div {
     
@@ -232,7 +231,7 @@ aside{
     display: flex;
     flex-direction: column;
     background-color: #AF814E;
-    padding: 30px;
+    padding: 8%;
     text-align: center;
     gap: 3%;
 }
@@ -269,7 +268,7 @@ aside ul {
 footer {
     display: flex;
     background-color: #CB0101;
-    padding: 5px;
+    padding: .5%;
     text-align: center;
     border-style: outset;
     border-color: #CB0101;
