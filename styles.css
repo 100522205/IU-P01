@@ -36,16 +36,19 @@ header > div,nav {
 /* Top navigation bar */
 .navbar {
   display: flex;
+  justify-content: center;
 }
 
 /* Navigation bar links */
 .navbar a {
+  display:flex;
   color: white;
-  padding: 2vh 4vw;
+  padding: 2vw 4vw;
   text-decoration: none;
   text-align: center;
   font-size: 125%;
   justify-items: center;
+  align-items:center;
 }
 
 /* Change color on hover */
@@ -65,7 +68,6 @@ input[type="submit"], input[type="button"]{
 
 body {
     font-family: "Chinese Rocks", sans-serif;
-    height: 100vh;
     margin:0;
 }
 
@@ -88,7 +90,7 @@ main {
 
 main > .main_content,
 main > aside {
-    overflow-y: auto; /* Adds a scrollbar ONLY if needed */
+    /*overflow-y: auto;  Adds a scrollbar ONLY if needed */
     min-height: 0;    /* Allows the sections to shrink properly in the grid */
 }
 
@@ -276,17 +278,12 @@ footer {
     align-items: center;
 }
 
-.white_text{
-    color:whitesmoke;
-}
-
 h1,h2,h3,p{
     letter-spacing: 0.07em;
 }
 .redes,
 .izq,
 .centro {
-    font-size: 120%;
     text-align: center;
     justify-items: center;
     color: white;
@@ -317,4 +314,66 @@ footer div form {
 
 .titulo {
     color: black;
+}
+
+.submit_and_register_container{
+    padding-top: 3%;
+}
+
+@media screen and (max-width:768px){
+    .navbar a {
+  padding: 1vh 2vw;
+  font-size: 100%;
+    }
+    main {  
+        grid-template-rows: 2fr 1fr;
+        grid-template-columns: 1fr;
+    }
+
+    .main_container1 {
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+}
+
+aside{
+    display: flex;
+    flex-direction: column;
+    background-color: #AF814E;
+    padding: 1%;
+    text-align: center;
+    gap: 2%;
+}
+aside > div {
+    padding: 1%;
+}
+
+.top {
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 2fr;
+}
+
+.info1{
+
+}
+.info2{
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.info4{
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+
+.heart {
+    text-shadow: 0 0 0.2em black;
+    top:6%;
+    right:6%;
+    font-size: 100%;
+}
+
+.submit_and_register_container{
+    padding-top: 1%;
+}
 }
