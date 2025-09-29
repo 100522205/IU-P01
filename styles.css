@@ -179,6 +179,7 @@ main > aside {
     background-repeat:no-repeat;
     background-size: 100%;
     background-attachment:initial;
+    padding: 5%;
 }
 
 .banner *{
@@ -188,6 +189,7 @@ main > aside {
 /*le añado sombra beige al texto para resaltarlo, con 30% opacidad*/
 .banner_text{
     text-shadow: 0 0 0.2em rgba(245, 245, 220, 30);
+    font-size: 90%;
 }
 
 .heart {
@@ -217,9 +219,10 @@ main > aside {
     grid-template-rows: 24.2vh 24.2vh;  
     gap: 1.5%;
     padding:1%;
+    overflow: hidden;
+    height: fit-content;
 }
 .cuadricula > div {
-    
     overflow: hidden; 
     position: relative;
 }
@@ -237,6 +240,7 @@ aside{
     padding: 8%;
     text-align: center;
     gap: 3%;
+    overflow: hidden;
 }
 aside > div {
     background-color: #C8A272;
@@ -267,6 +271,7 @@ aside ul {
 }
 .top {
     height: 100%;
+    overflow: hidden;
 }
 footer {
     display: flex;
@@ -305,6 +310,7 @@ h1,h2,h3,p{
 .subs {
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .subscribe_form{
@@ -343,7 +349,7 @@ h1,h2,h3,p{
 
     .main_container1 {
     display: grid;
-    grid-template-rows: 1fr 2fr;
+    grid-template-rows: auto 2fr;
 }
 
 aside{
@@ -361,7 +367,6 @@ aside > div {
 .top {
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 2fr;
 }
 
 .info1{
@@ -434,5 +439,29 @@ header {
 .header_dcha{
     grid-column-start: 3;
     grid-column-end: 5;
+}
+
+.carrusel_content img {
+    width: 100%;
+}
+
+.mobile_ovf_up {
+    top: 10%;
+}
+
+.mobile_ovf_down {
+    bottom: 10%;
+}
+
+main {
+    grid-template-rows: 2fr auto;
+}
+
+.subscribe_form {
+    font-size: 80%;
+}
+
+.subs > input[type="text"] {
+    width: 80%;
 }
 }
