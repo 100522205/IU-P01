@@ -464,4 +464,10 @@ main {
 .subs > input[type="text"] {
     width: 80%;
 }
+.main_content{
+    grid-template-rows: 1fr 1.5fr;
+}
+.main_container1{
+    grid-template-rows: 1fr 2fr;
+}
 }
