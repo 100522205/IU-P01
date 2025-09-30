@@ -75,6 +75,7 @@ body {
 img {
     max-width: 100%;
     height: auto;
+    border-radius: 10px;
 }
 
 .logo{
@@ -100,6 +101,7 @@ main > aside {
     grid-template-rows: 1fr 1fr;
     font-size: 170%;
     text-align: center;
+    background-color: #C8A272;
 }
 
 .main_container1 {
@@ -209,7 +211,12 @@ main > aside {
 .main_container2 > div {
     display: grid;
     place-content: center;
-    background-color: #AF814E;
+    padding: 3%;
+}
+
+h6 {
+    margin: 0.2em;
+    color: #C8A272;
 }
 
 .cuadricula{
@@ -217,9 +224,9 @@ main > aside {
     grid-template-columns: repeat(4, 1fr); 
     grid-template-rows: 24.2vh 24.2vh;  
     gap: 1.5%;
-    padding:1%;
-    overflow: hidden;
+    overflow: visible;
     height: fit-content;
+    border-radius: 5px;
 }
 .cuadricula > div {
     overflow: hidden; 
@@ -244,6 +251,7 @@ aside{
 aside > div {
     background-color: #C8A272;
     padding: 5%;
+    border-radius: 5px;
 }
 
 aside form {
@@ -331,6 +339,17 @@ h1,h2,h3,p{
 
 .submit_and_register_container{
     padding-top: 3%;
+}
+
+.button {
+    color: black;
+    background-color: white;
+    padding: 1%;
+    text-decoration: none;
+    border-style: solid;
+    border-width: 0.01rem;
+    border-color: rgb(123, 123, 123);
+    border-radius: 5px;
 }
 
 @media screen and (max-width:768px){
@@ -462,5 +481,11 @@ main {
 }
 .main_container1{
     grid-template-rows: 1fr 2fr;
+}
+.main_container2 {
+    padding-bottom: 1%;
+}
+.cuadricula {
+    background-color: #C8A272;
 }
 }
