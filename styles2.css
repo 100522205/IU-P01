@@ -1,0 +1,45 @@
+main {
+    display: flex;
+    background-color: #af824e;
+    padding: 10%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+main > form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color:  #C8A272;
+    padding: 7%;
+    margin: 0;
+}
+
+h1 {
+    margin-block-start: 0;
+}
+
+main > form > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+main > form > div > input[type="button"] {
+    font-size: 90%;
+}
+
+input[type="text"] {
+    height: 100%;
+}
+
+a {
+    color: hwb(240 0% 0% / 0.779);
+}
+
+.margin {
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+}

@@ -111,7 +111,6 @@ main > aside {
 .main_container1 .banner{
     display: grid;
     place-content: center;
-    background-color:#AF814E;
 }
 
 .padding_carrusel{
@@ -334,9 +333,6 @@ h1,h2,h3,p{
     padding-top: 3%;
 }
 
-.nav_header{}
-
-
 @media screen and (max-width:768px){
     .navbar a {
   padding: 1vh 2vw;
@@ -369,9 +365,6 @@ aside > div {
     grid-template-columns: 1fr 1fr 1fr;
 }
 
-.info1{
-
-}
 .info2{
     grid-row-start: 2;
     grid-row-end: 3;

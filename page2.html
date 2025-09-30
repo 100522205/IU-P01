@@ -1,6 +1,7 @@
 <html>
 <head>
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="styles2.css">
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
@@ -23,17 +24,45 @@
                 </select>
             </form>
     </header>
+    
+    
     <main>
         <form>
             <h1>Regristro de nuevos usuarios</h1>
-            <div><input type="text" name="Nombre" placeholder="Nombre"></div>
-            <div><input type="text" name="Apellidos" placeholder="Apellidos"></div>
-            <div><input type="text" name="Correo" placeholder="Correo eléctronico"></div>
-            <div><input type="text" name="Confirmar" placeholder="Confirmar correo"></div>            
-            <div><input type="text" name="login" placeholder="login"></div>
-            <div><input type="text" name="password" placeholder="password"></div>
+            <div>
+                <input type="text" name="Nombre" placeholder="Nombre">
+                <input type="text" name="Apellidos" placeholder="Apellidos">
+            </div>
+            <div>
+                <input type="text" name="Correo" placeholder="Correo eléctronico">
+                <input type="text" name="Confirmar" placeholder="Confirmar correo">
+            </div>
+            <div>
+                <p>Fecha de nacimiento</p>
+                <input type="text" name="Birthday" placeholder="DD/MM/YYYY">
+            </div>
+            <div>
+                <input type="text" name="login" placeholder="login">
+                <input type="text" name="password" placeholder="password">
+            </div>
+            <div>
+                <p>Subir imagen de perfil</p>
+                <input type="button" id="Examinar" name="Examinar" value="Examinar...">
+            </div>
+            <div>
+            <div class="margin">
+                <input type="checkbox" id="Política" name="Política">
+                <label for="Política"> Acepto la <a href="#">Política de privacidad</a></label>
+            </div>
+            </div>
+            <div class="margin">
+                <input type="button" id="Guardar" name="Guardar" value="Guardar datos y acceder">
+            </div>
+
         </form>
     </main>
+    
+    
     <footer>
         <div class="izq_negro">@ 2025 Mochileros por el Oeste</div>
         <div class="centro navbar">
