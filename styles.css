@@ -70,6 +70,7 @@ input[type="submit"], input[type="button"]{
 body {
     font-family: "Chinese Rocks", sans-serif;
     margin:0;
+    height: 100%;
 }
 
 img {
