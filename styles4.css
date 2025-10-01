@@ -1,0 +1,48 @@
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-image: url(map.jpg);
+}
+
+aside{
+    background-color: #af824e00;
+}
+
+aside > div {
+    background-color: #af824e00;
+}
+
+section {
+    background-color: #C8A272;
+    border-radius: 5px;
+    padding: 7%;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    height: 110%;
+    overflow: hidden;
+}
+
+h2 {
+    text-align: left;
+    margin-block-start: 0;
+}
+
+p {
+    text-align: left;
+}
+
+main {
+    background-image: none;
+}
+
+.wide {
+    width: 100%;
+}
+
+.not_wide {
+    width: 26%;
+}
+
+.spacing {
+    justify-content: space-evenly;
+}
