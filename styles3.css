@@ -1,6 +1,6 @@
 @font-face {
     font-family: "Chinese Rocks";
-    src: url("chinese\ rocks\ rg.otf") format("truetype");
+    src: url("chinese\ rocks\ rg.otf") format("opentype");
     font-weight: normal;
     font-style: normal;
 }
@@ -195,7 +195,7 @@ main > aside {
 
 /*le añado sombra beige al texto para resaltarlo, con 30% opacidad*/
 .banner_text{
-    text-shadow: 0 0 0.2em rgba(245, 245, 220, 30);
+    text-shadow: 0 0 0.2em rgba(245, 245, 220, .75);
     font-size: 90%;
 }
 
@@ -358,8 +358,8 @@ h3{
 }
 
 .redes,
-.izq,
-.centro {
+.izq
+{
     text-align: center;
     justify-items: center;
     color: white;
@@ -465,10 +465,6 @@ aside > div {
 
 .titulo {
     font-size: 120%;
-}
-
-.navbar a {
-  font-size: 100%;
 }
 
 
