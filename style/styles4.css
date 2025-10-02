@@ -6,7 +6,7 @@ body{
 .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    background-image: url(map.jpg);
+    background-image: url(../images/map.jpg);
     min-height: 100vh;
     overflow:hidden;
 }

@@ -1,6 +1,6 @@
 main {
     display: flex;
-    background-image: url(map.jpg);
+    background-image: url(../images/map.jpg);
     padding: 10%;
     justify-content: center;
     align-items: center;
