@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="style/styles.css">
     <link rel="stylesheet" href="style/styles2.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="/js/page2.js" type="module"></script>
 </head>
 <body>
     <header>
@@ -30,7 +31,7 @@
     
     
     <main>
-        <form>
+        <form name="register">
             <h1>Registro de nuevos usuarios</h1>
             <div>
                 <input type="text" name="Nombre" placeholder="Nombre">
@@ -45,12 +46,12 @@
                 <input type="text" name="Birthday" placeholder="DD/MM/YYYY">
             </div>
             <div>
-                <input type="text" name="login" placeholder="login">
-                <input type="text" name="password" placeholder="password">
+                <input type="text" name="Usuario" placeholder="login">
+                <input type="text" name="Contraseña" placeholder="password">
             </div>
             <div>
                 <p>Subir imagen de perfil</p>
-                <input type="button" id="Examinar" name="Examinar" value="Examinar...">
+                <input type="button" id="Examinar" name="Imagen" value="Examinar...">
             </div>
             <div>
             <div>
@@ -59,7 +60,7 @@
             </div>
             </div>
             <div>
-                <a class="button" href="page3.html">Guardar datos y acceder</a>
+                <input type="submit" id="Guardar" name="Guardar" value="Guardar datos y acceder">
             </div>
 
         </form>
