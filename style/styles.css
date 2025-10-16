@@ -120,7 +120,9 @@ main > aside {
     background-color: #C8A272;
     padding: .5%;
 }
-
+.carrusel{
+    position:relative;
+}
 .carrusel_content{
     position: relative;
     height:100%;
@@ -173,6 +175,24 @@ main > aside {
 .bottom-right {
   bottom: 5%;
   right: 2%;
+}
+
+/* Style for the 'previous' button */
+.carrusel .prev {
+  position: absolute;   /* Position it relative to .carrusel */
+  top: 50%;             /* Move it halfway down the container */
+  left: 2%;             /* Position it near the left edge */
+  transform: translateY(-50%); /* Shift it up by half its height to perfectly center it */
+  z-index: 10;          /* Ensure it's on top of the carousel images */
+}
+
+/* Style for the 'next' button */
+.carrusel .next {
+  position: absolute;   /* Position it relative to .carrusel */
+  top: 50%;             /* Move it halfway down the container */
+  right: 2%;            /* Position it near the right edge */
+  transform: translateY(-50%); /* Shift it up by half its height to perfectly center it */
+  z-index: 10;          /* Ensure it's on top of the carousel images */
 }
 
 .banner{

@@ -1,0 +1,33 @@
+.carrusel {
+    position: relative;
+    height:100%;
+    overflow: hidden;
+}
+
+.carrusel-track {
+    display: flex;
+    flex-direction: row;
+    transition: transform 0.5s ease;
+}
+
+.carrusel-item {
+    height: 300px;
+    min-width: 100%;
+    object-fit: cover;
+}
+
+.first {
+    background-image: url("../images/carrusel.jpg");
+    background-position: center;
+    background-repeat:no-repeat;
+    background-size: 100%;
+    background-attachment:initial;
+}
+
+.second {
+    background-color: green;
+}
+
+.third {
+    background-color: blue;
+}
