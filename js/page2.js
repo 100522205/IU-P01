@@ -16,27 +16,43 @@ function handleRegister(event) {
             "Contraseña": data.get("Contraseña")
         }
     ;
-
-    const errorEmail = document.getElementById('email-error');
-    const errorConfirmEmail = document.getElementById('confirm-email-error');
-    console.log('Valor leído del input:', register_data.Correo);
-    const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-
-    // Reiniciamos los mensajes de error
-    errorEmail.textContent = '';
-    errorConfirmEmail.textContent = '';
-    
     let esValido = true; // Una variable para saber si todo está correcto
+    
+    let fallos = [];
 
+    const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!regexEmail.test(register_data.Correo)) {
-        errorEmail.textContent = 'El formato del email no es válido (ej: nombre@dominio.ext)';
         esValido = false;
+        fallos.push("correo");
+    }
+    if (register_data.Correo !== register_data.Confirmar) {
+        esValido = false;
+        fallos.push("correo");
     }
 
-    if (register_data.Correo !== register_data.Confirmar) {
-        errorConfirmEmail.textContent = 'Los correos electrónicos no coinciden';
-        esValido = false;
-    }
+    const regexName = /^.{3,}$/;
+    if (!regexName.test(register_data.Nombre)) {
+            esValido = false;
+            fallos.push("name");
+        }
+
+    const regexSurnames = /^.{3,}\s+.{3,}$/;
+    if (!regexSurnames.test(register_data.Apellidos)) {
+            esValido = false;
+            fallos.push("apellidos");
+        }
+
+    const regexUser = /^.{5,}$/;
+    if (!regexUser.test(register_data.Usuario)) {
+            esValido = false;
+            fallos.push("user");
+        }
+
+    const regexPsswrd = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9].*[0-9])(?=.*[^a-zA-Z0-9]).{8,}$/;
+    if (!regexPsswrd.test(register_data.Contraseña)) {
+            esValido = false;
+            fallos.push("psswrd");
+        }
 
     if(esValido){
             registerUser(register_data);
@@ -44,7 +60,7 @@ function handleRegister(event) {
         window.location.href = "page3.html";
     }
     else{
-            console.log('El formulario contiene errores.');
+            console.log('El formulario contiene errores en: '+ fallos);
         }
 
 }
