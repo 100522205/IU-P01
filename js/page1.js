@@ -11,8 +11,13 @@ function handleLogin(event) {
     };
 
     if (loginUser(login_data)) {
-        // Redirigir a la página de inicio
-        window.location.href = "page3.html";
+        // Guardar usuario logueado en sessionStorage para que page3 lo muestre
+        try {
+            sessionStorage.setItem('logged_user', login_data.Usuario);
+            window.location.href = "page3.html";
+        } catch (e) {
+            console.warn('No se pudo guardar en sessionStorage:', e);
+        }
     } else {
         alert("Usuario o contraseña incorrectos");
     }

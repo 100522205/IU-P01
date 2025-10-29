@@ -86,10 +86,21 @@ img {
     padding-right: 5%;
 }
 
-.user_logo{
+.avatar{
+    width: 72px;
+    height: 72px;
+    max-width: 18vh;
     max-height: 18vh;
-    width:auto;
-    padding-right: 5%;
+    border-radius: 50%; /* contenedor circular */
+    overflow: hidden; /* recorta la imagen dentro del círculo */
+    display: inline-block;
+    box-sizing: border-box;
+}
+.avatar img.user_logo {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover; /* asegura que la imagen llene el contenedor sin deformarse */
 }
 
 main {
@@ -283,6 +294,7 @@ h6 {
     grid-template-rows: 1fr;
     padding:10%;
     text-align: right;
+    gap: 2%;
 }
 
 aside{

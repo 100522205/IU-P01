@@ -40,3 +40,7 @@ main > form > div > input[type="button"] {
 a {
     color: hwb(240 0% 0% / 0.779);
 }
+
+input[type="file"] {
+    padding-bottom: 3%;
+}

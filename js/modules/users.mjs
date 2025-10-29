@@ -17,7 +17,7 @@ function registerUser(user) {
 }
 
 function loginUser(user) {
-    const string_value = localStorage.getItem("register_data");
+    const string_value = localStorage.getItem("registered_users");
     let json_value = []; // Initialize json_value as an empty array by default
 
     if (string_value) { // Check if string_value is not null or empty
@@ -35,17 +35,10 @@ function loginUser(user) {
         }
     }
 
-    console.log(typeof json_value);
-    console.log(json_value);
-
     for (const u of json_value) {
-        console.log(u["Usuario"]);
-        console.log(user["Usuario"]);
         // The next line `console.log(json_value[u]);` might also be problematic
         // if `u` is an object. You likely meant to access a property of `u`.
         // For now, we'll keep it as is, but it might need review.
-        console.log(json_value[u]);
-        console.log(user);
         if (u["Usuario"] === user["Usuario"] && u["Contraseña"] === user["Contraseña"]) {
             return true;
         }

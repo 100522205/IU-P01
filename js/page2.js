@@ -1,9 +1,43 @@
 import { registerUser } from "./modules/users.mjs";
 
-function handleRegister(event) {
+function parseBirthday(dateString) {
+    const date = new Date(dateString);
+    const today = new Date();
+    let age = today.getFullYear() - date.getFullYear();
+    const monthDiff = today.getMonth() - date.getMonth();
+    if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < date.getDate())) {
+        age--;
+    }
+    return 100 >= age && age>= 16;
+}
+
+
+function readFileAsDataURL(file) {
+    return new Promise((resolve, reject) => {
+        if (!file) return resolve(null);
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = (err) => reject(err);
+        reader.readAsDataURL(file);
+    });
+}
+
+async function handleRegister(event) {
     event.preventDefault(); // Evita el comportamiento predeterminado del evento
 
     const data = new FormData(document.forms["register"]);
+
+    // read file if provided and convert to data URL so it can be JSON.stringified
+    const file = (document.getElementById('myfile') || {}).files ? document.getElementById('myfile').files[0] : null;
+    let imageData = null;
+    if (file) {
+        try {
+            imageData = await readFileAsDataURL(file);
+        } catch (e) {
+            console.warn('No se pudo leer la imagen seleccionada:', e);
+            imageData = null;
+        }
+    }
 
     const register_data = 
         {
@@ -13,55 +47,79 @@ function handleRegister(event) {
             "Confirmar": data.get("Confirmar"),
             "Birthday": data.get("Birthday"),
             "Usuario": data.get("Usuario"),
-            "Contraseña": data.get("Contraseña")
-        }
-    ;
+            "Contraseña": data.get("Contraseña"),
+            // store data URL (string) or null
+            "Imagen": imageData
+        };
     let esValido = true; // Una variable para saber si todo está correcto
     
     let fallos = [];
 
-    const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    if (!regexEmail.test(register_data.Correo)) {
-        esValido = false;
-        fallos.push("correo");
-    }
-    if (register_data.Correo !== register_data.Confirmar) {
-        esValido = false;
-        fallos.push("correo");
-    }
-
     const regexName = /^.{3,}$/;
     if (!regexName.test(register_data.Nombre)) {
             esValido = false;
-            fallos.push("name");
+            fallos.push("Nombre");
         }
 
     const regexSurnames = /^.{3,}\s+.{3,}$/;
     if (!regexSurnames.test(register_data.Apellidos)) {
             esValido = false;
-            fallos.push("apellidos");
+            fallos.push("Apellidos");
         }
 
-    const regexUser = /^.{5,}$/;
+    const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    if (!regexEmail.test(register_data.Correo)) {
+        esValido = false;
+        fallos.push("Correo electrónico");
+    }
+    if (register_data.Correo !== register_data.Confirmar) {
+        esValido = false;
+        fallos.push("Confirmar correo");
+    }
+
+    if (!parseBirthday(register_data.Birthday)) {
+            esValido = false;
+            fallos.push("Fecha de nacimiento");
+
+        }
+
+        const regexUser = /^.{5,}$/;
     if (!regexUser.test(register_data.Usuario)) {
             esValido = false;
-            fallos.push("user");
+            fallos.push("Usuario");
         }
 
     const regexPsswrd = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9].*[0-9])(?=.*[^a-zA-Z0-9]).{8,}$/;
     if (!regexPsswrd.test(register_data.Contraseña)) {
             esValido = false;
-            fallos.push("psswrd");
+            fallos.push("Contraseña");
+        }
+    
+    if (!register_data.Imagen) {
+            esValido = false;
+            fallos.push("Imagen de perfil");
         }
 
     if(esValido){
+        if (!data.get("Política")) {
+            alert('Debe aceptar la política de privacidad');
+        }
+        else {
             registerUser(register_data);
-        console.log(register_data);
-        window.location.href = "page3.html";
+            alert('Registro completado con éxito');
+            // Guardar usuario logueado en sessionStorage para que page3 lo muestre
+            try {
+                sessionStorage.setItem('logged_user', register_data.Usuario);
+                window.location.href = "page3.html";
+            } catch (e) {
+                console.warn('No se pudo guardar en sessionStorage:', e);
+            }
+        }
     }
     else{
-            console.log('El formulario contiene errores en: '+ fallos);
+            alert('El formulario contiene errores en: '+ ' \n * ' + fallos.join('\n * '));
         }
+
 
 }
 
