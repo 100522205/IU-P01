@@ -58,41 +58,41 @@ async function handleRegister(event) {
     const regexName = /^.{3,}$/;
     if (!regexName.test(register_data.Nombre)) {
             esValido = false;
-            fallos.push("Nombre");
+            fallos.push("Nombre (mín 3 caracteres)");
         }
 
     const regexSurnames = /^.{3,}\s+.{3,}$/;
     if (!regexSurnames.test(register_data.Apellidos)) {
             esValido = false;
-            fallos.push("Apellidos");
+            fallos.push("Apellidos (mín 3 caracteres por apellido)");
         }
 
     const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     if (!regexEmail.test(register_data.Correo)) {
         esValido = false;
-        fallos.push("Correo electrónico");
+        fallos.push("Correo electrónico (nombre@dominio.extensión)");
     }
     if (register_data.Correo !== register_data.Confirmar) {
         esValido = false;
-        fallos.push("Confirmar correo");
+        fallos.push("Confirmar correo (no coincide)");
     }
 
     if (!parseBirthday(register_data.Birthday)) {
             esValido = false;
-            fallos.push("Fecha de nacimiento");
+            fallos.push("Fecha de nacimiento (edad entre 16 y 100 años)");
 
         }
 
         const regexUser = /^.{5,}$/;
     if (!regexUser.test(register_data.Usuario)) {
             esValido = false;
-            fallos.push("Usuario");
+            fallos.push("Usuario (mín 5 caracteres)");
         }
 
     const regexPsswrd = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9].*[0-9])(?=.*[^a-zA-Z0-9]).{8,}$/;
     if (!regexPsswrd.test(register_data.Contraseña)) {
             esValido = false;
-            fallos.push("Contraseña");
+            fallos.push("Contraseña (mín 8 caracteres, mayúsculas, minúsculas, 2 números y 1 símbolo)");
         }
     
     if (!register_data.Imagen) {

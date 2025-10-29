@@ -64,6 +64,9 @@ main {
     padding:3%;
 }
 
+.button {
+    font-family: inherit;
+}
 
 @media screen and (max-width:600px)
 {  

@@ -67,10 +67,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (cerrarBtn) {
         cerrarBtn.addEventListener('click', (ev) => {
-            ev.preventDefault();
-            try { sessionStorage.removeItem('logged_user'); } catch (e) { /* ignore */ }
-            // Opcional: también redirigir al inicio
-            window.location.href = 'page1.html';
+            if (confirm('¿Desea cerrar sesión?')) {
+                ev.preventDefault();
+                try { sessionStorage.removeItem('logged_user'); } catch (e) { /* ignore */ }
+                // Opcional: también redirigir al inicio
+                window.location.href = 'page1.html';
+            }
         });
     }
 });

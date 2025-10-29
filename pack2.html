@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="style/styles2.css">
     <link rel="stylesheet" href="style/styles_packs.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="/js/packs.js" type="module"></script>
 </head>
 <body>
     <header>   
@@ -52,7 +53,7 @@
         </aside>
         
         <main>
-            <form>
+            <form name="compra">
                 <h1>Regristro de nuevos usuarios</h1>
                 <div>
                     <input type="text" name="Nombre" placeholder="Nombre completo" class="wide">
@@ -66,6 +67,7 @@
                         <select id="card" name="card">
                         <option value="visa">visa</option>
                         <option value="mastercard">mastercard</option>
+                        <option value="amex">american express</option>
                         </select>
                     </div>
                 </div>
@@ -77,14 +79,14 @@
                 </div>
                 <div>
                     <p>Fecha de caducidad</p>
-                    <input type="text" name="caducidad" placeholder="DD/MM/YYYY" class="not_wide">
+                    <input type="date" name="caducidad" class="not_wide">
                 </div>
                 <div>
                     <input type="text" name="CVV" placeholder="CVV" class="not_wide">
                 </div>
                 <div class="spacing">
-                    <a class="button" href="#">Comprar</a>
-                    <a class="button" href="#">Borrar</a>
+                    <button type="submit" class="button">Comprar</button>
+                    <button type="reset" class="button">Borrar</button>
                 </div>
             </form>
         </main>
