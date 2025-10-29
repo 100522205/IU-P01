@@ -365,6 +365,20 @@ aside ul {
     padding: 0 10%;
 }
 
+.consejos_form {
+    align-items: center;
+}
+
+.consejos_form input[type="text"] {
+    width : auto;
+    max-width: fit-content;
+    max-height: fit-content;
+}
+
+.info4 a {
+    color: #970202;
+}
+
 .searchbar
 {
     width:75%;

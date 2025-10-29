@@ -117,7 +117,7 @@ async function handleRegister(event) {
         }
     }
     else{
-            alert('El formulario contiene errores en: '+ ' \n * ' + fallos.join('\n * '));
+            alert('El formulario contiene errores en: '+ ' \n * ' + fallos.join('\n- '));
         }
 
 
