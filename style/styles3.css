@@ -70,6 +70,7 @@ input[type="submit"], input[type="button"]{
 body {
     font-family: "Chinese Rocks", sans-serif;
     margin:0;
+    height: 100%;
 }
 
 img {
@@ -126,9 +127,22 @@ main > aside {
     padding: .5%;
 }
 
+.carrusel{
+    position:relative;
+}
+
 .carrusel_content{
     position: relative;
     height:100%;
+}
+
+.carrusel_img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0; 
 }
 
 .carrusel_content img {
@@ -178,6 +192,24 @@ main > aside {
 .bottom-right {
   bottom: 5%;
   right: 2%;
+}
+
+/* Style for the 'previous' button */
+.carrusel .prev {
+  position: absolute;   /* Position it relative to .carrusel */
+  top: 50%;             /* Move it halfway down the container */
+  left: 2%;             /* Position it near the left edge */
+  transform: translateY(-50%); /* Shift it up by half its height to perfectly center it */
+  z-index: 10;          /* Ensure it's on top of the carousel images */
+}
+
+/* Style for the 'next' button */
+.carrusel .next {
+  position: absolute;   /* Position it relative to .carrusel */
+  top: 50%;             /* Move it halfway down the container */
+  right: 2%;            /* Position it near the right edge */
+  transform: translateY(-50%); /* Shift it up by half its height to perfectly center it */
+  z-index: 10;          /* Ensure it's on top of the carousel images */
 }
 
 .banner{
@@ -230,7 +262,6 @@ h6 {
     grid-template-columns: repeat(4, 1fr); 
     grid-template-rows: 24.2vh 24.2vh;  
     gap: 1.5%;
-    overflow: visible;
     height: fit-content;
     border-radius: 5px;
 }
@@ -545,6 +576,14 @@ main {
 
 .subs > input[type="text"] {
     width: 80%;
+}
+
+.main_content{
+    grid-template-rows: 1fr 1.5fr;
+}
+
+.main_container1{
+    grid-template-rows: 1fr 2fr;
 }
 
 .main_container2 {

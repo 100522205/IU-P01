@@ -54,15 +54,21 @@ main {
     justify-content: space-evenly;
 }
 
+.top-left{
+    font-size: 120%;
+    padding:3%;
+}
+
+.top-right{
+    font-size: 150%;
+    padding:3%;
+}
+
+
 @media screen and (max-width:600px)
 {  
 .grid {
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr;
-}
-
-.top-right{
-    font-size: 200%;
-    padding:3%;
 }
 }

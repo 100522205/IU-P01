@@ -120,9 +120,11 @@ main > aside {
     background-color: #C8A272;
     padding: .5%;
 }
+
 .carrusel{
     position:relative;
 }
+
 .carrusel_content{
     position: relative;
     height:100%;
@@ -443,7 +445,6 @@ footer {
     flex-direction: column;
 }
 }
-
 
 @media screen and (max-width:600px){
     .cuadricula{
