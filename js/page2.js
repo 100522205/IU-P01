@@ -123,4 +123,19 @@ async function handleRegister(event) {
 
 }
 
+async function disableRegisterButton() {
+    if(this.checked){
+        document.getElementById("Guardar").disabled = false;
+    }
+    else{
+        document.getElementById("Guardar").disabled = true;
+    }
+}
+
 document.forms["register"].addEventListener("submit", handleRegister);
+
+
+document.addEventListener('DOMContentLoaded', disableRegisterButton);
+
+const PolCheckbox = document.getElementById('Política');
+PolCheckbox.addEventListener("change", disableRegisterButton);
