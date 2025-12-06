@@ -1,0 +1,309 @@
+/* =========================================
+   HOJA DE RUTA - IMPLEMENTACIÓN DE PATRONES
+   Archivo: style/styles_ruta.css
+   ========================================= */
+
+/* --- FONDO GLOBAL UNIFICADO --- */
+body {
+    background-image: url('../images/map.jpg');
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+/* PATRÓN K2: Breadcrumbs */
+.breadcrumbs {
+    background-color: transparent;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    font-family: "Chinese Rocks", sans-serif;
+    color: black;
+    border-bottom: 1px solid rgba(94, 69, 43, 0.3);
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.4);
+    background: rgba(200, 162, 114, 0.15);
+    backdrop-filter: blur(2px);
+    letter-spacing: 0.05rem;
+}
+
+/* PATRÓN I2: Two-Column Layout */
+.ruta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background-image: none;
+    background-color: rgba(200, 162, 114, 0.15);
+    backdrop-filter: blur(2px);
+    min-height: 85vh;
+    overflow: hidden;
+}
+
+/* --- COLUMNA IZQUIERDA: TIMELINE (PATRÓN E3) --- */
+.timeline-container {
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: transparent;
+}
+
+.timeline-container h1 {
+    font-family: "Chinese Rocks", serif;
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+    color: #3e2b18;
+    text-shadow: 2px 2px 0px rgba(245, 245, 220, 0.5);
+    text-align: center;
+}
+
+.timeline {
+    position: relative;
+    width: 90%;
+    max-width: 550px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 10px;
+    bottom: 10px;
+    width: 4px;
+    background-color: #5e452b;
+    border-radius: 2px;
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.timeline-item:hover {
+    transform: scale(1.02);
+}
+
+.timeline-item::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    background-color: #CB0101;
+    border: 3px solid #3e2b18;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    transition: background-color 0.3s;
+}
+
+.timeline-item:hover::after {
+    background-color: #fff;
+}
+
+.time-info {
+    width: 42%;
+    text-align: right;
+    padding-right: 2rem;
+    font-family: sans-serif;
+}
+
+.date {
+    display: block;
+    font-size: 0.85rem;
+    color: #3e2b18;
+    font-weight: bold;
+    text-shadow: 1px 1px 0px rgba(255,255,255,0.3);
+}
+
+.hour {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.activity-card {
+    width: 42%;
+    background-color: #dcbfa6;
+    border: 2px solid #5e452b;
+    border-radius: 8px;
+    padding: 0.8rem;
+    text-align: center;
+    box-shadow: 4px 4px 0px rgba(62, 43, 24, 0.2);
+    font-family: "Chinese Rocks", serif;
+}
+
+.activity-card h3 {
+    margin: 0;
+    font-size: 1.4rem;
+    color: black;
+}
+
+/* --- COLUMNA DERECHA: MAPA (PATRÓN C1) --- */
+.map-panel {
+    position: relative;
+    padding: 1rem 5rem 1rem 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background: transparent;
+}
+
+.map-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 650px;
+    border: 4px solid #3e2b18;
+    box-shadow: 10px 10px 25px rgba(0,0,0,0.5);
+    border-radius: 2px;
+    overflow: hidden; /* Esto mantiene la imagen dentro */
+    background-color: transparent; 
+}
+
+.route-map {
+    width: 100%;
+    height: auto;
+    display: block;
+    filter: sepia(0.2) contrast(1.1);
+}
+
+/* Marcadores Interactivos */
+.map-marker {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    color: white; 
+    text-shadow: 0 0 3px black, 0 0 5px black;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    z-index: 10;
+}
+
+.map-marker:hover, 
+.active-marker {
+    color: #CB0101;
+    transform: translate(-50%, -50%) scale(1.5);
+    z-index: 20;
+}
+
+/* --- TOOLTIP CONFIGURACIÓN --- */
+.tooltip {
+    position: absolute;
+    bottom: 100%; /* Por defecto sale ARRIBA del marcador */
+    left: 50%;
+    transform: translateX(-50%);
+    background: black;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-family: sans-serif;
+    font-size: 0.8rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    white-space: nowrap;
+    margin-bottom: 5px; /* Pequeño espacio */
+}
+
+.map-marker:hover .tooltip,
+.active-marker .tooltip {
+    opacity: 1;
+}
+
+/* FIX: Clase especial para marcadores que están muy arriba y se cortan */
+.map-marker.tooltip-bottom .tooltip {
+    bottom: auto; /* Anulamos la posición de arriba */
+    top: 100%;    /* Lo forzamos a salir ABAJO */
+    margin-bottom: 0;
+    margin-top: 5px;
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN (INTEGRACIÓN COMPLETA)
+   ========================================= */
+
+/* --- TABLET (max-width: 768px) --- */
+@media screen and (max-width: 768px) {
+    
+
+    /* 2. Ajuste Hoja de Ruta */
+    .ruta-grid {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+
+    .timeline {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .timeline::before { left: 40px; }
+    .timeline-item { justify-content: flex-start; padding-left: 80px; margin-bottom: 2rem; }
+    .timeline-item::after { left: 40px; }
+
+    .time-info {
+        position: absolute;
+        width: auto;
+        text-align: left;
+        padding: 0;
+        top: -25px;
+        left: 80px;
+    }
+    
+    .date { display: inline-block; margin-right: 10px; }
+    .activity-card { width: 100%; text-align: left; }
+
+    .map-panel { padding: 2rem 3rem 2rem 2rem; height: 60vh; }
+    .map-wrapper { height: 100%; max-width: 100%; }
+    .route-map { height: 100%; width: 100%; object-fit: cover; object-position: center; }
+}
+
+/* --- MÓVIL (max-width: 600px) --- */
+@media screen and (max-width: 600px) {
+
+    /* 1. Header Responsive (Replicado de tu código de referencia) */
+    header {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: auto auto; /* Ajuste automático */
+        height: auto; 
+        padding-bottom: 1rem;
+    }
+
+    .header_izq {
+        grid-column-start: 1;
+        grid-column-end: 3; 
+        font-size: 150%;
+        text-align: left;
+    }
+
+    /* Ajustamos el Navbar para que ocupe la fila 2 */
+    .navbar {
+        grid-row-start: 2;
+        grid-row-end: 3;
+        grid-column-start: 1;
+        grid-column-end: 5;
+        padding-top: 0.5rem;
+    }  
+
+    .header_dcha {
+        grid-column-start: 3;
+        grid-column-end: 5;
+        justify-content: flex-end;
+    }
+
+    /* 2. Ajustes Hoja de Ruta Móvil */
+    .timeline-container h1 { font-size: 2.5rem; }
+    .timeline::before { left: 20px; }
+    .timeline-item::after { left: 20px; }
+    .timeline-item { padding-left: 50px; }
+
+    .time-info { left: 50px; top: -22px; font-size: 0.9rem; }
+    .activity-card h3 { font-size: 1.2rem; }
+
+    .map-panel { height: 50vh; padding: 0.1rem 2rem 1rem 1rem; }
+
+}

@@ -1,0 +1,181 @@
+/* =========================================
+   ESTILOS ESPECÍFICOS RUTA 1 (CARROUSEL)
+   Archivo: style/styles_ruta1.css
+   ========================================= */
+
+/* CONTENEDOR PRINCIPAL */
+/* Le damos altura completa para que iguale al mapa */
+.timeline-container {
+    height: 100%;
+    /* Quitamos justify-content: center para que el H1 se quede arriba */
+}
+
+/* CARRUSEL (SELECTOR) */
+.carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    
+    /* TRUCO PRO: */
+    /* Hacemos que este contenedor crezca para ocupar todo el hueco vertical disponible */
+    /* Al tener align-items: center, la tarjeta se centrará visualmente en este hueco */
+    flex-grow: 1; 
+    
+    margin-top: 0; /* Quitamos margen superior para dejar que flex-grow haga el trabajo */
+}
+
+.carousel-item {
+    display: none; /* Ocultos por defecto */
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    animation: fadeIn 0.5s;
+}
+
+.carousel-item.active {
+    display: flex; /* Solo mostramos el activo */
+}
+
+.nav-arrow {
+    background: #3e2b18;
+    color: #dcbfa6;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: grid;
+    place-content: center;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.nav-arrow:hover {
+    transform: scale(1.1);
+    background: #CB0101;
+    color: white;
+}
+
+.destination-card {
+    background-color: #dcbfa6;
+    border: 2px solid #5e452b;
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 5px 5px 0px rgba(62, 43, 24, 0.3);
+    width: 100%;
+    max-width: 300px;
+}
+
+.destination-card h2 {
+    font-family: "Chinese Rocks", serif;
+    margin: 0 0 0.5rem 0;
+    font-size: 2rem;
+}
+
+.destination-card p {
+    font-family: sans-serif;
+    margin: 0;
+    color: #3e2b18;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.valentine{
+    top: 56%;
+    left: 18%;
+}
+
+.emerald{
+    top: 61%;
+    left: 55%;
+}
+
+.oil{
+    top: 60%;
+    left: 33%;
+}
+
+.fort{
+    top: 33%;
+    left: 27%;
+}
+
+.annesburg{
+    top: 33%;
+    left: 87%;
+}
+
+.vanhorn{
+    top: 57%;
+    left: 86%;
+}
+
+.flatneck{
+    top: 84%;
+    left: 14%;
+}
+
+/* --- AJUSTES DE MARCADORES (Responsive) --- */
+
+@media screen and (max-width: 768px){
+    /* En tablet quitamos el flex-grow para que no deje espacios raros */
+    .carousel-container {
+        flex-grow: 0;
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .oil{
+        top: 56%;
+        left: 33%;
+    }
+
+    .flatneck{
+        top: 92%;
+        left: 11%;
+    }
+}
+
+
+@media screen and (max-width:600px){
+    .valentine{
+        top: 57%;
+        left: 15%;
+    }
+
+    .emerald{
+        top: 63%;
+        left: 55%;
+    }
+
+    .oil{
+        top: 55%;
+        left: 34%;
+    }
+
+    .fort{
+        top:29%;
+        left: 25%;    
+    }
+
+    .annesburg{
+        top: 29%;
+        left: 90%;
+    }
+
+    .vanhorn{
+        top: 58%;
+        left: 88%;
+    }
+
+    .flatneck{
+        top: 90%;
+        left: 11%;
+    }
+}

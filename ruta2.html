@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Hoja de Ruta - Pack 2</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/styles.css">
+    <link rel="stylesheet" href="style/styles_rutas.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="js/packs.js" type="module"></script>
+    <script src="js/rutas.js" defer></script>
+</head>
+<body>
+    
+    <header>   
+        <div class="header_izq izq titulo">Mochileros por el Oeste</div>
+        <nav class="navbar">
+            <a href="page1.html">Inicio</a>
+            <a href="#">Experiencias</a>
+            <a href="#">Consejos</a>
+            <a href="#">Foro</a>
+            <a href="#">Contacto</a>
+        </nav>
+        <div class="header_dcha">
+            <img src="images/diligencia.png" alt="Logo" class="logo">
+            <form>
+                <select id="language" name="language">
+                    <option value="es">ES</option>
+                    <option value="en">EN</option>
+                </select>
+            </form>
+        </div>
+    </header>
+
+    <div class="breadcrumbs">
+        Home > Comprar Packs > <strong>Hoja de Ruta</strong>
+    </div>
+
+    <div class="ruta-grid">
+        
+        <main class="timeline-container">
+            <h1>Hoja de Ruta</h1>
+            
+            <div class="timeline">
+                
+                <div class="timeline-item" data-target="marker-start">
+                    <div class="time-info">
+                        <span class="date">May 12, 2025</span>
+                        <span class="hour">09:00 AM</span>
+                    </div>
+                    <div class="activity-card">
+                        <h3>Salida: Blackwater</h3>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-target="marker-south">
+                    <div class="time-info">
+                        <span class="date">May 12, 2025</span>
+                        <span class="hour">12:30 PM</span>
+                    </div>
+                    <div class="activity-card">
+                        <h3>Mansión Braithwaite</h3>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-target="marker-north">
+                    <div class="time-info">
+                        <span class="date">May 12, 2025</span>
+                        <span class="hour">17:00 PM</span>
+                    </div>
+                    <div class="activity-card">
+                        <h3>Puente Bard's Crossing</h3>
+                    </div>
+                </div>
+
+                <div class="timeline-item" data-target="marker-end">
+                    <div class="time-info">
+                        <span class="date">May 12, 2025</span>
+                        <span class="hour">18:30 PM</span>
+                    </div>
+                    <div class="activity-card">
+                        <h3>Regreso a Puerto</h3>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+        
+        <aside class="map-panel">
+            <div class="map-wrapper">
+                <img src="images/ruta2.jpg" alt="Mapa de navegación Flat Iron Lake" class="route-map">
+                
+                <div id="marker-start" class="map-marker" style="top: 52%; left: 28%;">
+                    <i class="fa fa-times-circle"></i>
+                    <span class="tooltip">Inicio</span>
+                </div>
+                
+                <div id="marker-south" class="map-marker tooltip-down" style="top: 78%; left: 76%;">
+                    <i class="fa fa-times-circle"></i>
+                    <span class="tooltip">Braithwaite</span>
+                </div>
+                
+                <div id="marker-north" class="map-marker tooltip-down" style="top: 28%; left: 32%;">
+                    <i class="fa fa-times-circle"></i>
+                    <span class="tooltip">Bard's Crossing</span>
+                </div>
+                
+                <div id="marker-end" class="map-marker" style="top: 45%; left: 28%;">
+                    <i class="fa fa-flag-checkered"></i>
+                    <span class="tooltip">Fin</span>
+                </div>
+
+            </div>
+        </aside>
+    </div>
+    
+    <footer>
+        <div class="footer_left">
+            <div class="izq_negro">@ 2025 Mochileros por el Oeste</div>
+            <div class="centro navbar">
+                <a href="#">Sobre nosotros.</a>
+                <a href="#">Política de privacidad.</a>
+                <a href="#">Ayuda</a>
+            </div>
+        </div>
+        <div class="footer_right">
+            <div class="redes">
+                <i class="fa fa-youtube-play"></i>
+                <i class="fa fa-instagram"></i>
+                <i class="fa fa-twitter"></i>
+            </div>
+            
+            <form class="subscribe_form">
+                <div class="subs">       
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" name="email">
+                </div>
+                <div>
+                    <input type="submit" id="Subs" name="Subscribe" value="Subscribe" class="subscribe_button">
+                </div>          
+            </form> 
+        </div>          
+    </footer>
+
+</body>
+</html>
