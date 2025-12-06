@@ -27,6 +27,13 @@ section {
     padding-bottom: 4%;
     height: 100%;
     overflow: hidden;
+    border: 1px solid #5e452b;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.2);    
+}
+
+form[name="compra"] {
+    border: 1px solid #5e452b;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.2);    
 }
 
 h2 {
@@ -36,6 +43,7 @@ h2 {
 
 p {
     text-align: left;
+    color: #1a1a1a;
 }
 
 main {

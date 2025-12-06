@@ -1,0 +1,287 @@
+/* =========================================
+   ESTILOS CITIES.HTML
+   Archivo: style/styles_cities.css
+   ========================================= */
+
+/* FONDO GLOBAL (Mapa) */
+body {
+    background-image: url('../images/map.jpg');
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+/* BREADCRUMBS */
+.breadcrumbs {
+    background-color: transparent;
+    padding: 1rem 3rem; /* Alineado visualmente con el contenido */
+    font-size: 1.2rem;
+    font-family: "Chinese Rocks", sans-serif;
+    color: black;
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.4);
+    background: rgba(200, 162, 114, 0.15);
+    backdrop-filter: blur(2px);
+    letter-spacing: 0.05rem;
+}
+
+/* GRID PRINCIPAL (Layout 2 columnas) */
+.city-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr; /* La izquierda es un poco más ancha */
+    gap: 2rem;
+    padding: 0 3rem 3rem 3rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    background: rgba(200, 162, 114, 0.15);
+    backdrop-filter: blur(2px);
+}
+
+/* --- COLUMNA IZQUIERDA --- */
+.city-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Hero Image & Overlay */
+.city-hero {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Etiqueta del nombre (Transparente blanca) */
+.hero-overlay {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.35); /* Semitransparente como en la foto */
+    padding: 0.5rem 1.5rem;
+    backdrop-filter: blur(2px);
+    border-radius: 2px;
+}
+
+.hero-overlay h1 {
+    font-family: "Chinese Rocks", serif;
+    font-size: 2.5rem;
+    color: white;
+    margin: 0;
+    text-shadow: 1px 1px 2px black;
+}
+
+/* Icono Corazón */
+.heart-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    text-shadow: 0 0 3px black;
+    transition: transform 0.2s;
+}
+
+.heart-icon:hover {
+    transform: scale(1.1);
+}
+
+.heart-icon .fa-heart {
+    color: #CB0101; /* Corazón lleno rojo */
+}
+
+/* Caja de Descripción */
+.description-box {
+    background-color: #C8A272; /* Color beige "cartón" */
+    padding: 2rem;
+    border: 1px solid #5e452b;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.2);
+}
+
+.description-box h2, 
+.reviews-panel h2 {
+    font-family: "Chinese Rocks", serif;
+    font-size: 2rem;
+    margin-top: 0;
+    margin-bottom: 1rem;
+    color: #000;
+}
+
+.description-box p {
+    font-family: "Chinese Rocks", serif; /* Según imagen parece serif/display */
+    font-size: 1.2rem;
+    line-height: 1.4;
+    color: #1a1a1a;
+    font-weight: bold; /* Letra gruesa como en la imagen */
+}
+
+/* --- COLUMNA DERECHA (RESEÑAS) --- */
+.reviews-panel {
+    background-color: #C8A272;
+    padding: 2rem;
+    border: 1px solid #5e452b;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar todo horizontalmente */
+    justify-content: center;
+}
+
+.reviews-panel h2 {
+    margin-bottom: 1.5rem;
+}
+
+/* Wrapper del Carrusel (Flecha - Carta - Flecha) */
+.reviews-carousel-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+/* Estilo de la Tarjeta Individual */
+.review-card-single {
+    background-color: white;
+    padding: 1.5rem;
+    box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    border-radius: 2px;
+    width: 100%; /* Ocupa el espacio central */
+    min-height: 180px; /* Altura mínima para que no baile mucho */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Estilo de las Flechas */
+.review-nav-arrow {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #5e452b;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: transform 0.2s, color 0.2s;
+}
+
+.review-nav-arrow:hover {
+    color: #CB0101;
+    transform: scale(1.2);
+}
+
+.review-nav-arrow:disabled {
+    color: #aaa;
+    cursor: default;
+    transform: none;
+}
+
+/* Contador */
+.review-counter-text {
+    font-family: sans-serif;
+    font-size: 0.9rem;
+    color: #5e452b;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+}
+
+/* Elementos internos de la reseña */
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8rem;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5rem;
+}
+
+.review-user {
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.review-stars {
+    color: #d4e157;
+}
+
+.review-date {
+    display: block;
+    font-size: 0.75rem;
+    color: #888;
+    margin-bottom: 0.5rem;
+    font-style: italic;
+}
+
+.review-text {
+    font-family: "Chinese Rocks", serif;
+    font-size: 1.1rem;
+    line-height: 1.4;
+    color: #000;
+}
+
+/* Botón de acción */
+.review-action {
+    margin-top: auto;
+}
+
+.action-button {
+    background-color: #888; /* Gris oscuro según imagen */
+    color: black;
+    border: none;
+    padding: 0.8rem 2rem;
+    font-family: "Chinese Rocks", serif;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 2px 2px 0px rgba(0,0,0,0.5);
+    transition: background 0.2s;
+    text-decoration: none;
+}
+
+.action-button:hover {
+    background-color: #666;
+    color: white;
+}
+
+/* Clase utilidad para ocultar elementos */
+.hidden {
+    display: none !important;
+}
+
+/* --- RESPONSIVE DESIGN --- */
+
+/* Tablet (768px) */
+@media screen and (max-width: 768px) {
+    .city-grid {
+        grid-template-columns: 1fr; /* Una sola columna */
+        padding: 1rem;
+    }
+
+    .city-hero {
+        height: 300px;
+    }
+}
+
+/* Móvil (600px) */
+@media screen and (max-width: 600px) {
+    .breadcrumbs {
+        padding: 1rem;
+        font-size: 1rem;
+    }
+    
+    .hero-overlay h1 {
+        font-size: 2rem;
+    }
+    
+    .description-box p, 
+    .review-text {
+        font-size: 1rem;
+    }
+}
