@@ -446,6 +446,25 @@ footer {
 }
 }
 
+/* Estilo para convertir enlaces en botones visuales */
+.boton-ver-mas {
+    display: inline-block;
+    background-color: white; /* O el color gris de tu input original */
+    color: black;
+    padding: 0.2rem 0.5rem;
+    text-decoration: none;
+    border: 1px solid gray;
+    border-radius: 2px;
+    font-size: 80%; /* Ajustado a tu escala original */
+    font-family: inherit;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.boton-ver-mas:hover {
+    background-color: #ddd;
+}
+
 @media screen and (max-width:600px){
     .cuadricula{
     grid-template-columns:1fr 1fr; 

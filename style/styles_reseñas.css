@@ -1,0 +1,152 @@
+/* =========================================
+   ESTILOS NUEVA RESEÑA
+   Archivo: style/styles_resena.css
+   ========================================= */
+
+/* FONDO GLOBAL */
+body {
+    background-image: url('../images/map.jpg');
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-position: center;
+    /* Aseguramos que el footer se quede abajo si la pantalla es alta */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.breadcrumbs {
+    background-color: transparent;
+    padding: 1rem 3rem; /* Alineado visualmente con el contenido */
+    font-size: 1.2rem;
+    font-family: "Chinese Rocks", sans-serif;
+    color: black;
+    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.4);
+    background: rgba(200, 162, 114, 0.15);
+    backdrop-filter: blur(2px);
+    letter-spacing: 0.05rem;
+}
+
+/* CONTENEDOR CENTRAL (Flexbox para centrar) */
+.form-overlay {
+    flex-grow: 1; /* Ocupa el espacio restante entre header y footer */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centrado vertical */
+    padding: 2rem;
+    
+    /* Opcional: Oscurecer un poco el mapa detrás para que destaque la tarjeta */
+    background: rgba(200, 162, 114, 0.15);
+    backdrop-filter: blur(2px);
+}
+
+/* TARJETA DEL FORMULARIO */
+.review-card-form {
+    background-color: #C8A272; /* Color Beige del prototipo */
+    padding: 3rem;
+    width: 100%;
+    max-width: 600px; /* Ancho máximo similar a la imagen */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    border: 1px solid #5e452b;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.review-card-form h1 {
+    font-family: "Chinese Rocks", serif;
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: black;
+}
+
+#city-target-name {
+    font-family: "Chinese Rocks", serif;
+    font-size: 1.5rem;
+    background: rgba(200, 162, 114, 0.15);
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+}
+
+/* ESTRELLAS INTERACTIVAS */
+.star-rating {
+    font-size: 2.5rem;
+    color: #ccc; /* Gris por defecto */
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+}
+
+/* Estrellas llenas (se aplicará con JS o hover) */
+.star-rating .fa-star {
+    color: #d4e157; /* Amarillo/Verde oliva del prototipo */
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+}
+
+/* Hover effect: iluminar al pasar el ratón */
+.star.hovered {
+    color: #d4e157; 
+}
+
+/* ÁREA DE TEXTO */
+textarea {
+    width: 100%;
+    height: 180px; /* Altura fija grande */
+    padding: 1rem;
+    box-sizing: border-box; /* Para que el padding no rompa el ancho */
+    border: none;
+    border-radius: 2px;
+    font-family: sans-serif;
+    font-size: 1rem;
+    resize: none; /* Evitar que el usuario cambie el tamaño */
+    margin-bottom: 2rem;
+    outline: none;
+}
+
+textarea:focus {
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+}
+
+/* BOTONES */
+.form-actions {
+    display: flex;
+    justify-content: space-between; /* Separados a los extremos */
+    gap: 1rem;
+}
+
+.action-btn {
+    flex: 1; /* Ocupan el 50% cada uno */
+    background-color: #888; /* Gris del prototipo */
+    color: black;
+    border: none;
+    padding: 1rem;
+    font-family: "Chinese Rocks", serif;
+    font-size: 1.3rem;
+    cursor: pointer;
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.action-btn:hover {
+    background-color: #666; /* Gris más oscuro */
+    color: white;
+}
+
+.action-btn:active {
+    transform: translateY(2px);
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 600px) {
+    .review-card-form {
+        padding: 1.5rem;
+        width: 95%;
+    }
+    
+    .form-actions {
+        flex-direction: column; /* Botones uno encima de otro en móvil */
+    }
+    
+    .star-rating {
+        font-size: 2rem;
+    }
+}

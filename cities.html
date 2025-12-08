@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <title>Descubriendo Ciudades</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/styles.css">
+    <link rel="stylesheet" href="style/styles_cities.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="js/logged.js" type="module"></script>
+    <script src="js/cities.js" defer></script> </head>
+<body>
+    
+    <header>
+        <div class="header_izq izq titulo">Mochileros por el Oeste</div>
+        <nav class="navbar nav_header">
+            <a href="page1.html">Inicio</a>
+            <a href="#">Experiencias</a>
+            <a href="#">Consejos</a>
+            <a href="#">Foro</a>
+            <a href="#">Contacto</a>
+        </nav>
+        <div class="header_dcha">
+            <img src="images/diligencia.png" alt="Logo" class="logo">
+            <form>
+                <select id="language" name="language">
+                <option value="es">ES</option>
+                <option value="en">EN</option>
+                </select>
+            </form>
+        </div>
+    </header>
+
+    <div class="breadcrumbs">
+        Home > <strong>Descubriendo ciudades</strong>
+    </div>
+
+    <div class="city-grid">
+        
+        <main class="city-content">
+            
+            <div class="city-hero">
+                <img id="city-image" src="" alt="Ciudad" class="hero-img">
+                
+                <div class="hero-overlay">
+                    <h1 id="city-name">Cargando...</h1>
+                </div>
+                
+                <div class="heart-icon">
+                    <i class="fa fa-heart-o" id="like-btn"></i>
+                </div>
+            </div>
+
+            <section class="description-box">
+                <h2>Descripción de la ciudad</h2>
+                <p id="city-desc">Selecciona una ciudad para ver los detalles.</p>
+            </section>
+
+        </main>
+        
+        <aside class="reviews-panel">
+            <h2>Reseñas y Valoraciones</h2>
+            
+            <div class="reviews-carousel-wrapper">
+                
+                <button id="prev-review-btn" class="review-nav-arrow">
+                    <i class="fa fa-chevron-left"></i>
+                </button>
+
+                <div id="single-review-container" class="review-card-single">
+                    <p>Cargando comentarios...</p>
+                </div>
+
+                <button id="next-review-btn" class="review-nav-arrow">
+                    <i class="fa fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <div class="review-action">
+                <button id="btn-add-review" class="action-button hidden">Dejar mi reseña</button>
+            </div>
+        </aside>
+    </div>
+    
+    <footer>
+        <div class="footer_left">
+            <div class="izq_negro">@ 2025 Mochileros por el Oeste</div>
+            <div class="centro navbar">
+                <a href="#">Sobre nosotros.</a>
+                <a href="#">Política de privacidad.</a>
+                <a href="#">Ayuda</a>
+            </div>
+        </div>
+        <div class="footer_right">
+            <div class="redes">
+                <i class="fa fa-youtube-play"></i>
+                <i class="fa fa-instagram"></i>
+                <i class="fa fa-twitter"></i>
+            </div>
+          
+            <form class="subscribe_form">
+                <div class="subs">       
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" name="email">
+                </div>
+                <div>
+                    <input type="submit" id="Subs" name="Subscribe" value="Subscribe" class="subscribe_button">
+                </div>          
+            </form> 
+        </div>          
+
+</body>
+</html>

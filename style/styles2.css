@@ -37,6 +37,11 @@ main > form > div > input[type="button"] {
     font-size: 90%;
 }
 
+form[name="register"] {
+    border: 1px solid #5e452b;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.2);    
+}
+
 a {
     color: hwb(240 0% 0% / 0.779);
 }

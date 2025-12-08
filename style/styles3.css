@@ -403,6 +403,25 @@ aside ul {
     padding: 0 10%;
 }
 
+.boton-ver-mas {
+    display: inline-block;
+    background-color: white; /* O el color gris de tu input original */
+    color: black;
+    padding: 0.2rem 0.5rem;
+    text-decoration: none;
+    border: 1px solid gray;
+    border-radius: 2px;
+    font-size: 80%; /* Ajustado a tu escala original */
+    font-family: inherit;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.boton-ver-mas:hover {
+    background-color: #ddd;
+}
+
+
 .consejos_form {
     align-items: center;
 }
