@@ -10,9 +10,9 @@
     <script src="/js/packs.js" type="module"></script>
 </head>
 <body>
-    <header>   
+    <header>
         <div class="header_izq izq titulo">Mochileros por el Oeste</div>
-        <nav class="navbar">
+        <nav class="navbar nav_header">
             <a href="page1.html">Inicio</a>
             <a href="#">Experiencias</a>
             <a href="#">Consejos</a>
@@ -97,26 +97,31 @@
     
     
     <footer>
-        <div class="izq_negro">@ 2025 Mochileros por el Oeste</div>
-        <div class="centro navbar">
-            <a href="#">Sobre nosotros.</a>
-            <a href="#">Política de privacidad.</a>
-            <a href="#">Ayuda</a>
-        </div>
-        <div class="redes">
-            <i class="fa fa-youtube-play"></i>
-            <i class="fa fa-instagram"></i>
-            <i class="fa fa-twitter"></i>
-        </div>
-        <form class="subscribe_form">
-            <div class="subs">       
-                <label for="email">Email:</label>
-                <input type="text" id="email" name="email">
+        <div class="footer_left">
+            <div class="izq_negro">@ 2025 Mochileros por el Oeste</div>
+            <div class="centro navbar">
+                <a href="#">Sobre nosotros.</a>
+                <a href="#">Política de privacidad.</a>
+                <a href="#">Ayuda</a>
             </div>
-            <div>
-                <input type="submit" id="Subs" name="Subscribe" value="Subscribe">
-            </div>          
-        </form>           
+        </div>
+        <div class="footer_right">
+            <div class="redes">
+                <i class="fa fa-youtube-play"></i>
+                <i class="fa fa-instagram"></i>
+                <i class="fa fa-twitter"></i>
+            </div>
+          
+            <form class="subscribe_form">
+                <div class="subs">       
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" name="email">
+                </div>
+                <div>
+                    <input type="submit" id="Subs" name="Subscribe" value="Subscribe" class="subscribe_button">
+                </div>          
+            </form> 
+        </div>          
     </footer>
 
 </body>
