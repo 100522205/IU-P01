@@ -1,0 +1,127 @@
+body {
+    background-image: url('../images/map.jpg');
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.favorites-main {
+    min-height: calc(100vh - 140px); 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem 3rem;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+    align-self: flex-start;
+    margin-left: 5%;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.breadcrumbs a {
+    color: #000;
+    text-decoration: none;
+}
+
+.breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+/* Panel central */
+.favorites-panel {
+    background-color: #C8A272;
+    border-radius: 8px;
+    padding: 2rem 3rem;
+    max-width: 1100px;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+.favorites-panel h1 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
+
+/* Grid de ciudades */
+.favorites-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+/* Mensaje cuando no hay favoritos */
+.favorites-empty {
+    margin-top: 1.5rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Tarjeta individual de ciudad favorita */
+.favorite-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    background-color: #000;
+}
+
+.favorite-card img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+/* Nombre de la ciudad */
+.favorite-name {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    padding: 4px 8px;
+    background-color: rgba(0,0,0,0.6);
+    color: #fff;
+    font-weight: bold;
+    font-size: 0.9rem;
+}
+
+/* Botón para quitar de favoritos (corazón) */
+.favorite-remove {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 1.3rem;
+    text-shadow: 0 0 0.2em black;
+}
+
+.favorite-remove i {
+    color: #ff0000;  
+}
+
+/* Responsive tablet */
+@media (max-width: 900px) {
+    .favorites-panel {
+        padding: 1.5rem;
+    }
+    .favorites-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Responsive móvil */
+@media (max-width: 600px) {
+    .favorites-grid {
+        grid-template-columns: 1fr;
+    }
+}

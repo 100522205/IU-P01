@@ -515,3 +515,88 @@ main {
     background-color: #C8A272;
 }
 }
+
+.heart {
+    text-shadow: 0 0 0.2em black;
+    top:6%;
+    right:6%;
+    font-size: 120%;
+}
+
+.heart i {
+    color: white;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.heart i.favorite {
+    color: #ff0000;
+}
+
+/* -------- MODAL LOGIN REQUERIDO -------- */
+
+.hidden {
+    display: none;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.modal.hidden {
+    display: none;
+}
+
+.modal-content {
+    background-color: #C8A272;
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 90%;
+    width: 400px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.modal-buttons {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.modal-buttons button {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.modal-buttons button:not(.secondary) {
+    background-color: #CB0101;
+    color: #fff;
+}
+
+.modal-buttons button.secondary {
+    background-color: #ffffff;
+    color: #000;
+}
+
+.modal-close {
+    position: absolute;
+    top: 0.4rem;
+    right: 0.6rem;
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+    color: #000;
+}
+

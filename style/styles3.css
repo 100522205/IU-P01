@@ -236,7 +236,6 @@ main > aside {
     margin:0;
 }
 
-/*le añado sombra beige al texto para resaltarlo, con 30% opacidad*/
 .banner_text{
     text-shadow: 0 0 0.2em rgba(245, 245, 220, .75);
     font-size: 90%;
@@ -247,6 +246,36 @@ main > aside {
     top:6%;
     right:6%;
     font-size: 120%;
+}
+
+.heart i {
+    color: white;             
+    cursor: pointer;           
+    transition: color 0.2s ease;
+}
+
+.heart i.favorite {
+    color: #ff0000;       
+}
+
+.favorites-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+    font-size: 90%;      
+}
+
+.favorites-link span {
+    text-transform: none; 
+}
+
+.favorites-link i {
+    color: #ff0000;
+    font-size: 1.1rem;
 }
 
 .main_container2 {
@@ -283,18 +312,27 @@ h6 {
 .cuadricula img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* mantiene proporción y llena el espacio */
+    object-fit: cover; 
     display: block;
 }
 
-.name_user{
-    display: grid;
+.name_user {
+    display: flex;
     align-items: center;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    padding:10%;
-    text-align: right;
-    gap: 2%;
+    padding: 10%;
+}
+
+
+.name_user h2 {
+    margin: 0;
+}
+
+.name_user .avatar {
+    margin-left: 0.6rem;    
+}
+
+.name_user .favorites-link {
+    margin-left: auto;     
 }
 
 aside{
