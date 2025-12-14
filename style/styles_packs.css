@@ -26,7 +26,6 @@ section {
     padding: 7%;
     padding-top: 4%;
     padding-bottom: 4%;
-    height: 100%;
     overflow: visible;
     border: 1px solid #5e452b;
     box-shadow: 3px 3px 5px rgba(0,0,0,0.2);    
@@ -77,6 +76,15 @@ main {
     font-family: inherit;
 }
 
+.carrusel_content {
+    width: 90%;
+    max-height: 60vh;
+    margin: 0 auto;
+    aspect-ratio: 4 / 5;
+    position: relative;
+}
+
+
 
 .roadmap-container {
     margin-top: 2rem; 
@@ -125,12 +133,110 @@ main {
     text-decoration: underline;
 }
 
-/* --- RESPONSIVE --- */
+
+.opciones-viaje {
+    align-items: flex-start;
+    margin-top: 2rem;
+    border-top: 1px solid #000;
+    padding-top: 1.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem 3rem;
+}
+
+.titulo-opciones-viaje {
+    flex-basis: 100%;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.bloque-opcion {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+    flex: 1 1 260px;
+    max-width: 400px;
+    font-size: 0.95rem;
+}
+
+.bloque-opcion > label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 0.4rem;
+}
+
+.bloque-opcion input[type="checkbox"] {
+    transform: translateY(1px);
+}
+
+
+.contenedor-acompanantes {
+    margin-top: 0.6rem;
+    width: 100%;
+}
+
+.fila-acompanante {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+    margin-bottom: 0.7rem;
+    width: 100%;
+}
+
+.fila-acompanante span {
+    font-weight: bold;
+    min-width: auto;             
+}
+
+.fila-acompanante input[type="text"],
+.fila-acompanante input[type="email"] {
+    width: 100%;
+    max-width: none;
+}
+
+
+.extra-mascota {
+    margin-top: 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;  
+    column-gap: 1rem;
+    row-gap: 0.3rem;
+    align-items: center;
+}
+
+.extra-mascota label {
+    display: block;
+    font-weight: normal;
+}
+
+.extra-mascota input[type="text"] {
+    width: 100%;
+    max-width: 100%;                 
+}
+
+.extra-alergia {
+    margin-top: 0.5rem;
+}
+
 
 @media screen and (max-width:600px)
 {  
-.grid {
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr;
-}
+    .grid {
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr;
+    }
+
+    .opciones-viaje {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .bloque-opcion {
+        max-width: 100%;
+    }
 }

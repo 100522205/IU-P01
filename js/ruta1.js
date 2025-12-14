@@ -10,16 +10,15 @@ document.addEventListener('DOMContentLoaded', () => {
             console.warn('No se pudo leer logged_user de sessionStorage:', e);
         }
 
-
         bcEl.innerHTML = `
             <a href="${homeHref}">Home</a> &gt;
-            <a href="pack1.html">Packs</a> &gt;
-            <span>Servicio Nocturno</span> &gt;
+            <span>Packs</span> &gt;
+            <a href="pack1.html">Servicio Nocturno</a> &gt;
             <strong>Hoja de ruta</strong>
         `;
     }
 
-    /* ---------- CARRUSEL + MAPA (código que ya tenías) ---------- */
+
     let currentIndex = 0;
     const items = document.querySelectorAll('.carousel-item');
     const totalItems = items.length;

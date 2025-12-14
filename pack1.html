@@ -80,7 +80,7 @@
                     <input type="text" name="tarjeta" placeholder="Número de tarjeta" class="wide">
                 </div>
                 <div>
-                    <input type="text" name="tarjeta" placeholder="Nombre del titular de la tarjeta" class="wide">
+                    <input type="text" name="titular" placeholder="Nombre del titular de la tarjeta" class="wide">
                 </div>
                 <div>
                     <p>Fecha de caducidad</p>
@@ -89,6 +89,56 @@
                 <div>
                     <input type="text" name="CVV" placeholder="CVV" class="not_wide">
                 </div>
+
+                <div class="opciones-viaje">
+                    <p class="titulo-opciones-viaje">Opciones de viaje</p>
+                    <div class="bloque-opcion">
+                        <label for="cantidad_acompanantes">Número de acompañantes:</label>
+                        <input
+                            type="number"
+                            id="cantidad_acompanantes"
+                            name="cantidad_acompanantes"
+                            min="0"
+                            step="1"
+                            value="0">
+                        <div id="contenedor_acompanantes" class="contenedor-acompanantes"> </div>
+                    </div>
+                    
+
+                    <div class="bloque-opcion">
+                        <label>
+                            <input type="checkbox" id="viajo_con_mascota" name="viajo_con_mascota">
+                            Viajo con mascota
+                        </label>
+
+                        <div class="extra-mascota">
+                            <label for="tipo_mascota">Tipo de mascota</label>
+                            <input type="text" id="tipo_mascota" name="tipo_mascota" disabled>
+
+                            <label for="tamano_mascota">Tamaño</label>
+                            <input type="text" id="tamano_mascota" name="tamano_mascota" disabled>
+                        </div>
+                    </div>
+
+                    <div class="bloque-opcion">
+                        <label>
+                            <input type="checkbox" id="tiene_alergias" name="tiene_alergias">
+                            Alguna intolerancia o alergia
+                        </label>
+
+                        <div class="extra-alergia">
+                            <textarea
+                                id="detalles_alergias"
+                                name="detalles_alergias"
+                                rows="3"
+                                cols="40"
+                                placeholder="Describe las intolerancias o alergias"
+                                disabled></textarea>
+                        </div>
+                    </div>
+                </div> 
+               
+
                 <div class="spacing">
                     <button type="submit" class="button">Comprar</button>
                     <button type="reset" class="button">Borrar</button>

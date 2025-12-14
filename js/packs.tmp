@@ -118,7 +118,7 @@ function parseCaducidad(dateString) {
 
     const hoy = new Date();
     const y = date.getFullYear();
-    const m = date.getMonth();      
+    const m = date.getMonth();      // 0-11
     const yh = hoy.getFullYear();
     const mh = hoy.getMonth();
 
@@ -158,6 +158,7 @@ async function handleCompra(event) {
             fallos.push("Tipo de tarjeta (sin respuesta)");
         }
 
+    const regexTarjeta = /^\d{13,15,16,19}$/;
     if (!regexTarjeta.test(data.get("tarjeta"))) {
             esValido = false;
             fallos.push("Número de tarjeta (13, 15, 16 o 19 dígitos)");
@@ -217,9 +218,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+// ================= OPCIONES DE VIAJE (FORMULARIO DE COMPRA) =================
 document.addEventListener('DOMContentLoaded', () => {
     const formulario = document.forms['compra'];
-    if (!formulario) return; 
+    if (!formulario) return; // No estamos en una página de pack
 
     const inputCantidadAcompanantes = formulario.querySelector('#cantidad_acompanantes');
     const contenedorAcompanantes    = document.getElementById('contenedor_acompanantes');
@@ -231,12 +233,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const casillaAlergias       = formulario.querySelector('#tiene_alergias');
     const textareaDetallesAlergias = formulario.querySelector('#detalles_alergias');
 
+    // ---- ACOMPAÑANTES ----
     function pintarAcompanantes() {
         if (!inputCantidadAcompanantes || !contenedorAcompanantes) return;
 
         let cantidad = parseInt(inputCantidadAcompanantes.value, 10);
         if (isNaN(cantidad) || cantidad < 0) cantidad = 0;
 
+        // límite razonable
         if (cantidad > 8) cantidad = 8;
 
         inputCantidadAcompanantes.value = cantidad;
@@ -270,9 +274,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (inputCantidadAcompanantes) {
         inputCantidadAcompanantes.addEventListener('input', pintarAcompanantes);
-        pintarAcompanantes(); 
+        pintarAcompanantes(); // Inicializa (0 → sin filas)
     }
 
+    // ---- MASCOTA ----
     function sincronizarMascota() {
         if (!casillaMascota || !inputTipoMascota || !inputTamanoMascota) return;
         const habilitado = casillaMascota.checked;
@@ -289,6 +294,7 @@ document.addEventListener('DOMContentLoaded', () => {
         sincronizarMascota();
     }
 
+    // ---- ALERGIAS / INTOLERANCIAS ----
     function sincronizarAlergias() {
         if (!casillaAlergias || !textareaDetallesAlergias) return;
         const habilitado = casillaAlergias.checked;
@@ -303,7 +309,9 @@ document.addEventListener('DOMContentLoaded', () => {
         sincronizarAlergias();
     }
 
+    // ---- VALIDACIÓN AL ENVIAR ----
     formulario.addEventListener('submit', (evento) => {
+        // Validar acompañantes
         let cantidad = 0;
         if (inputCantidadAcompanantes) {
             cantidad = parseInt(inputCantidadAcompanantes.value, 10);
@@ -326,6 +334,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
+        // Validar datos de mascota (solo si se ha marcado)
         if (casillaMascota && casillaMascota.checked) {
             if (!inputTipoMascota.value.trim() || !inputTamanoMascota.value.trim()) {
                 alert('Indica el tipo y el tamaño de la mascota.');
@@ -335,6 +344,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
+        // Validar alergias (solo si se ha marcado)
         if (casillaAlergias && casillaAlergias.checked) {
             if (!textareaDetallesAlergias.value.trim()) {
                 alert('Describe las intolerancias o alergias de los pasajeros.');
