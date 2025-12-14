@@ -1,5 +1,3 @@
-// Ensure the 'Inicio' link in the navbar redirects based on session login state.
-// If sessionStorage.logged_user exists -> page3.html, otherwise -> page1.html
 document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.navbar a');
     navLinks.forEach(a => {

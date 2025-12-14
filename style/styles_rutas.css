@@ -1,9 +1,4 @@
-/* =========================================
-   HOJA DE RUTA - IMPLEMENTACIÓN DE PATRONES
-   Archivo: style/styles_ruta.css
-   ========================================= */
 
-/* --- FONDO GLOBAL UNIFICADO --- */
 body {
     background-image: url('../images/map.jpg');
     background-repeat: repeat;
@@ -11,7 +6,6 @@ body {
     background-position: center;
 }
 
-/* PATRÓN K2: Breadcrumbs */
 .breadcrumbs {
     background-color: transparent;
     padding: 0.8rem 2rem;
@@ -25,7 +19,20 @@ body {
     letter-spacing: 0.05rem;
 }
 
-/* PATRÓN I2: Two-Column Layout */
+.breadcrumbs a {
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;   
+}
+
+.breadcrumbs a:visited {
+    color: #000;
+}
+
+.breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
 .ruta-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -36,7 +43,6 @@ body {
     overflow: hidden;
 }
 
-/* --- COLUMNA IZQUIERDA: TIMELINE (PATRÓN E3) --- */
 .timeline-container {
     padding: 2rem 1rem;
     display: flex;
@@ -141,7 +147,6 @@ body {
     color: black;
 }
 
-/* --- COLUMNA DERECHA: MAPA (PATRÓN C1) --- */
 .map-panel {
     position: relative;
     padding: 1rem 5rem 1rem 1rem;
@@ -158,7 +163,7 @@ body {
     border: 4px solid #3e2b18;
     box-shadow: 10px 10px 25px rgba(0,0,0,0.5);
     border-radius: 2px;
-    overflow: hidden; /* Esto mantiene la imagen dentro */
+    overflow: hidden; 
     background-color: transparent; 
 }
 
@@ -169,7 +174,6 @@ body {
     filter: sepia(0.2) contrast(1.1);
 }
 
-/* Marcadores Interactivos */
 .map-marker {
     position: absolute;
     transform: translate(-50%, -50%);
@@ -188,10 +192,9 @@ body {
     z-index: 20;
 }
 
-/* --- TOOLTIP CONFIGURACIÓN --- */
 .tooltip {
     position: absolute;
-    bottom: 100%; /* Por defecto sale ARRIBA del marcador */
+    bottom: 100%; 
     left: 50%;
     transform: translateX(-50%);
     background: black;
@@ -204,7 +207,7 @@ body {
     pointer-events: none;
     transition: opacity 0.3s;
     white-space: nowrap;
-    margin-bottom: 5px; /* Pequeño espacio */
+    margin-bottom: 5px; 
 }
 
 .map-marker:hover .tooltip,
@@ -212,24 +215,19 @@ body {
     opacity: 1;
 }
 
-/* FIX: Clase especial para marcadores que están muy arriba y se cortan */
 .map-marker.tooltip-bottom .tooltip {
-    bottom: auto; /* Anulamos la posición de arriba */
-    top: 100%;    /* Lo forzamos a salir ABAJO */
+    bottom: auto; 
+    top: 100%;    
     margin-bottom: 0;
     margin-top: 5px;
 }
 
 
-/* =========================================
-   RESPONSIVE DESIGN (INTEGRACIÓN COMPLETA)
-   ========================================= */
+/* --- RESPONSIVE --- */
 
-/* --- TABLET (max-width: 768px) --- */
+/* Tablet (768px) */
 @media screen and (max-width: 768px) {
-    
 
-    /* 2. Ajuste Hoja de Ruta */
     .ruta-grid {
         grid-template-columns: 1fr;
         height: auto;
@@ -261,14 +259,13 @@ body {
     .route-map { height: 100%; width: 100%; object-fit: cover; object-position: center; }
 }
 
-/* --- MÓVIL (max-width: 600px) --- */
+/* Móvil (600px) */
 @media screen and (max-width: 600px) {
 
-    /* 1. Header Responsive (Replicado de tu código de referencia) */
     header {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: auto auto; /* Ajuste automático */
+        grid-template-rows: auto auto; 
         height: auto; 
         padding-bottom: 1rem;
     }
@@ -280,7 +277,6 @@ body {
         text-align: left;
     }
 
-    /* Ajustamos el Navbar para que ocupe la fila 2 */
     .navbar {
         grid-row-start: 2;
         grid-row-end: 3;
@@ -295,7 +291,6 @@ body {
         justify-content: flex-end;
     }
 
-    /* 2. Ajustes Hoja de Ruta Móvil */
     .timeline-container h1 { font-size: 2.5rem; }
     .timeline::before { left: 20px; }
     .timeline-item::after { left: 20px; }

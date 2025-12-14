@@ -1,15 +1,16 @@
 body{
     margin:0;
     height: 100%;
+    background-image: url(../images/map.jpg); 
 }
 
 .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    background-image: url(../images/map.jpg);
     min-height: 100vh;
     overflow:hidden;
 }
+
 
 aside{
     background-color: #af824e00;
@@ -76,25 +77,20 @@ main {
     font-family: inherit;
 }
 
-/* =========================================
-   ESTILOS BOTÓN HOJA DE RUTA
-   ========================================= */
 
 .roadmap-container {
-    margin-top: 2rem; /* Separación respecto al texto de descripción */
+    margin-top: 2rem; 
     display: flex;
-    justify-content: center; /* Centrar el botón horizontalmente */
+    justify-content: center; /
 }
 
 .roadmap-button {
-    display: inline-block; /* Necesario para que el <a> coja padding y tamaño */
+    display: inline-block; 
     text-align: center;
     cursor: pointer;
-    font-size: 1.2rem; /* Un poco más grande para destacar */
-    padding: 0.5rem 1.5rem; /* Padding más generoso */
-    width: auto; /* Que se ajuste al texto */
-    
-    /* Aseguramos que herede los colores de tu clase .button existente */
+    font-size: 1.2rem; 
+    padding: 0.5rem 1.5rem; 
+    width: auto; 
     background-color: white; 
     color: black;
     border: 1px solid rgb(123, 123, 123);
@@ -103,8 +99,33 @@ main {
 
 .roadmap-button:hover {
     background-color: #ddd;
-    transform: scale(1.05); /* Pequeño efecto zoom al pasar el ratón */
+    transform: scale(1.05); 
 }
+
+
+.breadcrumbs {
+    padding: 1rem 3rem; 
+    font-size: 1.2rem;
+    color: black;
+    letter-spacing: 0.05rem;
+    margin-bottom: -2rem;
+}
+
+.breadcrumbs a {
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;   
+}
+
+.breadcrumbs a:visited {
+    color: #000;
+}
+
+.breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+/* --- RESPONSIVE --- */
 
 @media screen and (max-width:600px)
 {  

@@ -20,7 +20,6 @@ function showSlide(n) {
 }
 
 function moveSlide() {
-    // Evita múltiples intervalos si ya está corriendo
     if (autoIntervalId) return;
 
     autoIntervalId = setInterval(() => {
@@ -37,7 +36,6 @@ function stopSlide() {
 
 prevBtn.addEventListener('click', () => {
     showSlide(index - 1);
-    // Reiniciar el temporizador si el modo automático está activo
     if (autoIntervalId) {
         stopSlide();
         moveSlide();
@@ -52,5 +50,4 @@ nextBtn.addEventListener('click', () => {
     }
 });
 
-// Iniciar el movimiento automático al cargar el script
 moveSlide();

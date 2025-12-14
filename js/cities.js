@@ -1,8 +1,3 @@
-/* =========================================
-   LÓGICA DE CIUDADES (CITIES.JS) - VERSIÓN FINAL CARRUSEL
-   ========================================= */
-
-// 1. DATOS ESTÁTICOS (Imágenes y Descripciones que NO cambian)
 const citiesStaticData = {
     "valentine": {
         name: "Valentine",
@@ -46,7 +41,6 @@ const citiesStaticData = {
     }
 };
 
-// 2. DATOS SEMILLA PARA LOCAL STORAGE (Reseñas iniciales)
 const initialReviewsSeed = {
     "valentine": [
         { user: "cowboy_joe", stars: 5, date: "2025-04-10", text: "¡El mejor estofado del estado está aquí!" },
@@ -84,35 +78,51 @@ const initialReviewsSeed = {
 
 document.addEventListener('DOMContentLoaded', () => {
     
-    // A. INICIALIZAR LOCAL STORAGE (Si está vacío)
     if (!localStorage.getItem('db_reviews')) {
         localStorage.setItem('db_reviews', JSON.stringify(initialReviewsSeed));
     }
 
-    // B. CARGA DE CONTENIDO (Datos Estáticos)
     const params = new URLSearchParams(window.location.search);
     const cityId = params.get('id');
     
     const staticInfo = citiesStaticData[cityId];
 
+    const breadcrumbsEl = document.getElementById('cities-breadcrumbs');
+    if (breadcrumbsEl) {
+        let homeHref = 'page1.html';
+        try {
+            const loggedUser = sessionStorage.getItem('logged_user');
+            if (loggedUser) {
+                homeHref = 'page3.html';
+            }
+        } catch (e) {
+            console.warn('No se pudo leer logged_user desde sessionStorage:', e);
+        }
+
+        let html = `<a href="${homeHref}">Home</a> &gt; `;
+
+        if (staticInfo && staticInfo.name) {
+            html += `<span>Descubriendo ciudades</span> &gt; <strong>${staticInfo.name}</strong>`;
+        } else {
+            html += `<strong>Descubriendo ciudades</strong>`;
+        }
+
+        breadcrumbsEl.innerHTML = html;
+    }
+
+
     if (staticInfo) {
-        // Título y Descripción
         document.title = staticInfo.name + " - Mochileros por el Oeste";
         document.getElementById('city-name').textContent = staticInfo.name;
         document.getElementById('city-desc').textContent = staticInfo.description;
         
-        // Imagen (con fallback)
         const imgEl = document.getElementById('city-image');
         imgEl.src = staticInfo.image; 
         imgEl.onerror = function() { this.src = 'images/cities/default.jpg'; };
 
-        // -------------------------------------------------------
-        // C. LÓGICA DEL CARRUSEL DE RESEÑAS
-        // -------------------------------------------------------
         const allReviews = JSON.parse(localStorage.getItem('db_reviews')) || {};
         const cityReviews = allReviews[cityId] || []; 
 
-        // Ordenar: Más recientes primero
         const reviewsList = [...cityReviews].reverse();
         
         let currentReviewIndex = 0;
@@ -120,9 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const prevBtn = document.getElementById('prev-review-btn');
         const nextBtn = document.getElementById('next-review-btn');
 
-        // Función para pintar una reseña específica
         function showReview(index) {
-            // Caso A: No hay reseñas
             if (reviewsList.length === 0) {
                 container.innerHTML = `
                     <div style="text-align:center; padding: 2rem;">
@@ -135,9 +143,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // Caso B: Mostrar reseña
             const review = reviewsList[index];
-            // Formatear fecha simple (si existe)
             const dateStr = review.date ? new Date(review.date).toLocaleDateString() : '';
 
             container.innerHTML = `
@@ -149,18 +155,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 <p class="review-text">"${review.text}"</p>
             `;
             
-            // Reactivar botones
             if(prevBtn) prevBtn.disabled = false;
             if(nextBtn) nextBtn.disabled = false;
         }
 
-        // Eventos de Navegación
         if(prevBtn) {
             prevBtn.addEventListener('click', () => {
                 if (reviewsList.length > 0) {
                     currentReviewIndex--;
                     if (currentReviewIndex < 0) {
-                        currentReviewIndex = reviewsList.length - 1; // Ir al último (loop)
+                        currentReviewIndex = reviewsList.length - 1; 
                     }
                     showReview(currentReviewIndex);
                 }
@@ -172,24 +176,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (reviewsList.length > 0) {
                     currentReviewIndex++;
                     if (currentReviewIndex >= reviewsList.length) {
-                        currentReviewIndex = 0; // Volver al primero (loop)
+                        currentReviewIndex = 0; 
                     }
                     showReview(currentReviewIndex);
                 }
             });
         }
 
-        // Inicializar vista del carrusel
         showReview(0);
 
     } else {
-        // Si no hay ID o es incorrecto
         const content = document.querySelector('.city-content');
         if(content) content.innerHTML = '<h2>Destino no encontrado</h2><p>Vuelve al inicio para seleccionar una ciudad válida.</p>';
     }
 
-    // D. BOTÓN DE RESEÑA Y AUTH
-    // ----------------------------------------------------
     const loggedUser = sessionStorage.getItem('logged_user');
     
     const btnReview = document.getElementById('btn-add-review');
@@ -198,12 +198,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (loggedUser && btnReview) {
         btnReview.classList.remove('hidden');
         
-        // Redirección correcta pasando parámetros
         btnReview.addEventListener('click', () => {
             window.location.href = `reseñas.html?city=${cityId}`; 
         });
 
-        // Lógica visual del Like
         if(likeBtn) {
             likeBtn.addEventListener('click', () => {
                 if (likeBtn.classList.contains('fa-heart-o')) {
@@ -218,7 +216,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Helper para pintar estrellas
 function generateStars(count) {
     let starsHTML = '';
     for (let i = 0; i < 5; i++) {

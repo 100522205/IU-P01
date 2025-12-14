@@ -23,11 +23,10 @@ function readFileAsDataURL(file) {
 }
 
 async function handleRegister(event) {
-    event.preventDefault(); // Evita el comportamiento predeterminado del evento
+    event.preventDefault(); 
 
     const data = new FormData(document.forms["register"]);
 
-    // read file if provided and convert to data URL so it can be JSON.stringified
     const file = (document.getElementById('myfile') || {}).files ? document.getElementById('myfile').files[0] : null;
     let imageData = null;
     if (file) {
@@ -48,10 +47,9 @@ async function handleRegister(event) {
             "Birthday": data.get("Birthday"),
             "Usuario": data.get("Usuario"),
             "Contraseña": data.get("Contraseña"),
-            // store data URL (string) or null
             "Imagen": imageData
         };
-    let esValido = true; // Una variable para saber si todo está correcto
+    let esValido = true; 
     
     let fallos = [];
 
@@ -107,7 +105,6 @@ async function handleRegister(event) {
         else {
             registerUser(register_data);
             alert('Registro completado con éxito');
-            // Guardar usuario logueado en sessionStorage para que page3 lo muestre
             try {
                 sessionStorage.setItem('logged_user', register_data.Usuario);
                 window.location.href = "page3.html";

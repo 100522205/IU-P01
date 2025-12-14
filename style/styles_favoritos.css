@@ -13,7 +13,6 @@ body {
     padding: 2rem 1rem 3rem;
 }
 
-/* Breadcrumbs */
 .breadcrumbs {
     align-self: flex-start;
     margin-left: 5%;
@@ -30,7 +29,6 @@ body {
     text-decoration: underline;
 }
 
-/* Panel central */
 .favorites-panel {
     background-color: #C8A272;
     border-radius: 8px;
@@ -47,14 +45,12 @@ body {
     margin-bottom: 2rem;
 }
 
-/* Grid de ciudades */
 .favorites-grid {
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 1.5rem;
 }
 
-/* Mensaje cuando no hay favoritos */
 .favorites-empty {
     margin-top: 1.5rem;
     text-align: center;
@@ -65,7 +61,6 @@ body {
     display: none;
 }
 
-/* Tarjeta individual de ciudad favorita */
 .favorite-card {
     position: relative;
     overflow: hidden;
@@ -81,7 +76,6 @@ body {
     object-fit: cover;
 }
 
-/* Nombre de la ciudad */
 .favorite-name {
     position: absolute;
     top: 8px;
@@ -93,7 +87,6 @@ body {
     font-size: 0.9rem;
 }
 
-/* Botón para quitar de favoritos (corazón) */
 .favorite-remove {
     position: absolute;
     top: 8px;
@@ -109,7 +102,9 @@ body {
     color: #ff0000;  
 }
 
-/* Responsive tablet */
+/* --- RESPONSIVE --- */
+
+/* Tablet (768px) */
 @media (max-width: 900px) {
     .favorites-panel {
         padding: 1.5rem;
@@ -119,7 +114,7 @@ body {
     }
 }
 
-/* Responsive móvil */
+/* Móvil (600px) */
 @media (max-width: 600px) {
     .favorites-grid {
         grid-template-columns: 1fr;

@@ -2,10 +2,9 @@ import { loginUser } from './modules/users.mjs';
 
 const FAVORITES_STORAGE_KEY = 'favorites_by_user';
 
-// ---------------- LOGIN ----------------
 
 function handleLogin(event) {
-    event.preventDefault(); // Evita el comportamiento predeterminado del evento
+    event.preventDefault(); 
 
     const data = new FormData(document.forms["login"]);
 
@@ -15,7 +14,6 @@ function handleLogin(event) {
     };
 
     if (loginUser(login_data)) {
-        // Guardar usuario logueado en sessionStorage para que page3 lo muestre
         try {
             sessionStorage.setItem('logged_user', login_data.Usuario);
             window.location.href = "page3.html";
@@ -27,7 +25,6 @@ function handleLogin(event) {
     }
 }
 
-// ---------------- UTILIDADES GENERALES ----------------
 
 function getLoggedUser() {
     try {
@@ -43,7 +40,6 @@ function hideModal(modal) {
     modal.setAttribute('aria-hidden', 'true');
 }
 
-// -------- FAVORITOS (para cuando SÍ hay usuario logueado en page1) --------
 
 function getFavoritesObject() {
     try {
@@ -80,12 +76,10 @@ function toggleFavoriteForUser(cityName, icon, username, currentFavorites) {
     const idx = favorites.indexOf(cityName);
 
     if (idx === -1) {
-        // Añadir a favoritos
         favorites.push(cityName);
         icon.classList.add('favorite');
         icon.setAttribute('aria-pressed', 'true');
     } else {
-        // Quitar de favoritos
         favorites.splice(idx, 1);
         icon.classList.remove('favorite');
         icon.setAttribute('aria-pressed', 'false');
@@ -110,7 +104,6 @@ function initFavoriteHeartsWhenLogged(loggedUser) {
         const cityName = nameEl.textContent.trim();
         if (!cityName) return;
 
-        // Estado inicial
         if (favorites.includes(cityName)) {
             heartIcon.classList.add('favorite');
             heartIcon.setAttribute('aria-pressed', 'true');
@@ -127,7 +120,6 @@ function initFavoriteHeartsWhenLogged(loggedUser) {
     });
 }
 
-// ---------------- INICIALIZACIÓN ----------------
 
 document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.forms["login"];
@@ -161,7 +153,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     if (modal) {
-        // Cerrar al hacer clic fuera del cuadro
         modal.addEventListener('click', (ev) => {
             if (ev.target === modal) {
                 hideModal(modal);
@@ -176,7 +167,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (loginBtn && modal) {
         loginBtn.addEventListener('click', () => {
             hideModal(modal);
-            // Desplazar y enfocar el formulario de login
             const userInput = document.getElementById('Usuario');
             if (userInput) {
                 userInput.scrollIntoView({ behavior: 'smooth', block: 'center' });

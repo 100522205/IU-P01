@@ -33,14 +33,11 @@ header > div,nav {
     min-width: 5vh;
 }
 
-
-/* Top navigation bar */
 .navbar {
   display: flex;
   justify-content: center;
 }
 
-/* Navigation bar links */
 .navbar a {
   display:flex;
   color: white;
@@ -52,7 +49,6 @@ header > div,nav {
   align-items:center;
 }
 
-/* Change color on hover */
 .navbar a:hover {
   background-color: #ddd;
   color: black;
@@ -63,7 +59,7 @@ select {
 }
 
 input[type="submit"], input[type="button"]{
-    font-family: inherit; /*Hace que se herede la fuente de body en vez de cambiarse*/
+    font-family: inherit; 
     font-size: 120%;
 }
 
@@ -82,7 +78,7 @@ img {
 .logo{
     max-height: 7vh;
     width:auto;
-    filter:invert(1); /*Convierte la imagen originalmente blanca a lo contrario, negro*/
+    filter:invert(1); 
     padding-right: 5%;
 }
 
@@ -91,8 +87,8 @@ img {
     height: 72px;
     max-width: 18vh;
     max-height: 18vh;
-    border-radius: 50%; /* contenedor circular */
-    overflow: hidden; /* recorta la imagen dentro del círculo */
+    border-radius: 50%; 
+    overflow: hidden; 
     display: inline-block;
     box-sizing: border-box;
 }
@@ -100,7 +96,7 @@ img {
     width: 100%;
     height: 100%;
     display: block;
-    object-fit: cover; /* asegura que la imagen llene el contenedor sin deformarse */
+    object-fit: cover; 
 }
 
 main {
@@ -110,8 +106,7 @@ main {
 
 main > .main_content,
 main > aside {
-    /*overflow-y: auto;  Adds a scrollbar ONLY if needed */
-    min-height: 0;    /* Allows the sections to shrink properly in the grid */
+    min-height: 0;   
 }
 
 .main_content {
@@ -158,10 +153,10 @@ main > aside {
 
 .carrusel_content img {
     position: absolute;
-    inset: 0; /* ocupa toda la celda */
+    inset: 0; 
     width: 100%;
     height: 100%;
-    object-fit: cover; /* se ajusta sin deformarse */
+    object-fit: cover; 
     z-index: 0;
 }
 .text {
@@ -186,7 +181,6 @@ main > aside {
     font-size: 50%;
 }
 
-/* esquinas */
 .top-left {
   top: 5%;
   left: 2%;
@@ -205,22 +199,20 @@ main > aside {
   right: 2%;
 }
 
-/* Style for the 'previous' button */
 .carrusel .prev {
-  position: absolute;   /* Position it relative to .carrusel */
-  top: 50%;             /* Move it halfway down the container */
-  left: 2%;             /* Position it near the left edge */
-  transform: translateY(-50%); /* Shift it up by half its height to perfectly center it */
-  z-index: 10;          /* Ensure it's on top of the carousel images */
+  position: absolute;   
+  top: 50%;             
+  left: 2%;             
+  transform: translateY(-50%); 
+  z-index: 10;          
 }
 
-/* Style for the 'next' button */
 .carrusel .next {
-  position: absolute;   /* Position it relative to .carrusel */
-  top: 50%;             /* Move it halfway down the container */
-  right: 2%;            /* Position it near the right edge */
-  transform: translateY(-50%); /* Shift it up by half its height to perfectly center it */
-  z-index: 10;          /* Ensure it's on top of the carousel images */
+  position: absolute;   
+  top: 50%;             
+  right: 2%;            
+  transform: translateY(-50%); 
+  z-index: 10;         
 }
 
 .banner{
@@ -363,9 +355,9 @@ aside > *:last-child {
 
 aside form {
     display: flex;      
-    flex-direction: column;        /* para organizar inputs */
-    justify-content: center;    /* centra verticalmente dentro del form */
-    height: 100%;               /* muy importante: llena su celda */
+    flex-direction: column;       
+    justify-content: center;    
+    height: 100%;              
     margin: 0%;
     font-size: 120%;
 }
@@ -377,7 +369,7 @@ aside form > * {
 
 aside ol {
     list-style-position: inside;
-    padding: 0; /* Good practice to remove default browser spacing */
+    padding: 0; 
 }
 aside ul {
     padding: 0;
@@ -405,13 +397,13 @@ aside ul {
 
 .boton-ver-mas {
     display: inline-block;
-    background-color: white; /* O el color gris de tu input original */
+    background-color: white; 
     color: black;
     padding: 0.2rem 0.5rem;
     text-decoration: none;
     border: 1px solid gray;
     border-radius: 2px;
-    font-size: 80%; /* Ajustado a tu escala original */
+    font-size: 80%; 
     font-family: inherit;
     cursor: pointer;
     transition: background-color 0.2s;
@@ -524,6 +516,68 @@ h3{
     border-radius: 5px;
 }
 
+.otros-rincones-wrapper {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.otros-rincones-btn {
+    display: inline-block;
+    padding: 0.8rem 2.5rem;
+    background-color: #e4e4e4;
+    border-radius: 4px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.otros-rincones-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+}
+
+.info2 h3 {
+    text-align: left;
+    margin-bottom: 0.8rem;
+}
+
+.recent-list {
+    display: flex;
+    gap: 1rem;           
+    align-items: center;
+    min-height: 110px;   
+}
+
+.recent-item {
+    display: block;
+    width: 120px;        
+    height: 80px;        
+    overflow: hidden;
+    border-radius: 3px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.recent-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+.recent-empty {
+    font-size: 0.9rem;
+}
+
+
+/* --- RESPONSIVE --- */
+
+/* Tablet (768px) */
 @media screen and (max-width:768px){
     .navbar a {
   padding: 1vh 2vw;
@@ -607,9 +661,8 @@ main {
 }
 
 
+/* Móvil (600px) */
 @media screen and (max-width:600px){
-
-    
 header {
     display: grid;
     grid-template-columns: repeat(4,1fr);

@@ -1,0 +1,128 @@
+body {
+    background-image: url('../images/map.jpg');
+    background-repeat: repeat;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.otros-main {
+    min-height: calc(100vh - 140px); 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem 3rem;
+    box-sizing: border-box;
+}
+
+.otros-breadcrumbs {
+    align-self: flex-start;
+    margin-left: 5%;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.otros-breadcrumbs a {
+    color: #000;
+    text-decoration: none;
+}
+
+.otros-breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
+.otros-panel {
+    background-color: #C8A272;
+    border-radius: 8px;
+    padding: 2rem 3rem;
+    max-width: 1100px;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+.otros-panel h1 {
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 2rem;
+}
+
+.otros-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+}
+
+.otros-card {
+    background-color: #e4e4e4;
+    border-radius: 4px;
+    padding: 0.8rem 0.5rem;
+    text-align: center;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.otros-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+}
+
+.otros-card a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+
+.otros-city-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+.otros-city-description {
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.otros-city-image img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 4px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.4);
+}
+
+
+.otros-message {
+    text-align: center;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+/* --- RESPONSIVE --- */
+
+@media (max-width: 900px) {
+    .otros-panel {
+        padding: 1.5rem;
+    }
+    .otros-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 800px) {
+    .otros-city-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .otros-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,15 +1,8 @@
-/* =========================================
-   ESTILOS NUEVA RESEÑA
-   Archivo: style/styles_resena.css
-   ========================================= */
-
-/* FONDO GLOBAL */
 body {
     background-image: url('../images/map.jpg');
     background-repeat: repeat;
     background-attachment: fixed;
     background-position: center;
-    /* Aseguramos que el footer se quede abajo si la pantalla es alta */
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -17,7 +10,7 @@ body {
 
 .breadcrumbs {
     background-color: transparent;
-    padding: 1rem 3rem; /* Alineado visualmente con el contenido */
+    padding: 1rem 3rem; 
     font-size: 1.2rem;
     font-family: "Chinese Rocks", sans-serif;
     color: black;
@@ -27,25 +20,35 @@ body {
     letter-spacing: 0.05rem;
 }
 
-/* CONTENEDOR CENTRAL (Flexbox para centrar) */
+.breadcrumbs a {
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;   
+}
+
+.breadcrumbs a:visited {
+    color: #000;
+}
+
+.breadcrumbs a:hover {
+    text-decoration: underline;
+}
+
 .form-overlay {
-    flex-grow: 1; /* Ocupa el espacio restante entre header y footer */
+    flex-grow: 1; 
     display: flex;
     justify-content: center;
-    align-items: center; /* Centrado vertical */
+    align-items: center; 
     padding: 2rem;
-    
-    /* Opcional: Oscurecer un poco el mapa detrás para que destaque la tarjeta */
     background: rgba(200, 162, 114, 0.15);
     backdrop-filter: blur(2px);
 }
 
-/* TARJETA DEL FORMULARIO */
 .review-card-form {
-    background-color: #C8A272; /* Color Beige del prototipo */
+    background-color: #C8A272; 
     padding: 3rem;
     width: 100%;
-    max-width: 600px; /* Ancho máximo similar a la imagen */
+    max-width: 600px; 
     box-shadow: 0 10px 25px rgba(0,0,0,0.3);
     border: 1px solid #5e452b;
     border-radius: 4px;
@@ -68,36 +71,32 @@ body {
     margin-bottom: 1.5rem;
 }
 
-/* ESTRELLAS INTERACTIVAS */
 .star-rating {
     font-size: 2.5rem;
-    color: #ccc; /* Gris por defecto */
+    color: #ccc; 
     margin-bottom: 1.5rem;
     cursor: pointer;
 }
 
-/* Estrellas llenas (se aplicará con JS o hover) */
 .star-rating .fa-star {
-    color: #d4e157; /* Amarillo/Verde oliva del prototipo */
+    color: #d4e157; 
     text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
 }
 
-/* Hover effect: iluminar al pasar el ratón */
 .star.hovered {
     color: #d4e157; 
 }
 
-/* ÁREA DE TEXTO */
 textarea {
     width: 100%;
-    height: 180px; /* Altura fija grande */
+    height: 180px; 
     padding: 1rem;
-    box-sizing: border-box; /* Para que el padding no rompa el ancho */
+    box-sizing: border-box; 
     border: none;
     border-radius: 2px;
     font-family: sans-serif;
     font-size: 1rem;
-    resize: none; /* Evitar que el usuario cambie el tamaño */
+    resize: none; 
     margin-bottom: 2rem;
     outline: none;
 }
@@ -106,16 +105,15 @@ textarea:focus {
     box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
 }
 
-/* BOTONES */
 .form-actions {
     display: flex;
-    justify-content: space-between; /* Separados a los extremos */
+    justify-content: space-between; 
     gap: 1rem;
 }
 
 .action-btn {
-    flex: 1; /* Ocupan el 50% cada uno */
-    background-color: #888; /* Gris del prototipo */
+    flex: 1; 
+    background-color: #888; 
     color: black;
     border: none;
     padding: 1rem;
@@ -127,7 +125,7 @@ textarea:focus {
 }
 
 .action-btn:hover {
-    background-color: #666; /* Gris más oscuro */
+    background-color: #666; 
     color: white;
 }
 
@@ -135,7 +133,9 @@ textarea:focus {
     transform: translateY(2px);
 }
 
-/* RESPONSIVE */
+/* --- RESPONSIVE --- */
+
+/* Móvil (600px) */
 @media screen and (max-width: 600px) {
     .review-card-form {
         padding: 1.5rem;
@@ -143,7 +143,7 @@ textarea:focus {
     }
     
     .form-actions {
-        flex-direction: column; /* Botones uno encima de otro en móvil */
+        flex-direction: column; 
     }
     
     .star-rating {

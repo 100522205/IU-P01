@@ -1,33 +1,19 @@
-/* =========================================
-   ESTILOS ESPECÍFICOS RUTA 1 (CARROUSEL)
-   Archivo: style/styles_ruta1.css
-   ========================================= */
-
-/* CONTENEDOR PRINCIPAL */
-/* Le damos altura completa para que iguale al mapa */
 .timeline-container {
     height: 100%;
-    /* Quitamos justify-content: center para que el H1 se quede arriba */
 }
 
-/* CARRUSEL (SELECTOR) */
 .carousel-container {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 1rem;
     width: 100%;
-    
-    /* TRUCO PRO: */
-    /* Hacemos que este contenedor crezca para ocupar todo el hueco vertical disponible */
-    /* Al tener align-items: center, la tarjeta se centrará visualmente en este hueco */
     flex-grow: 1; 
-    
-    margin-top: 0; /* Quitamos margen superior para dejar que flex-grow haga el trabajo */
+    margin-top: 0; 
 }
 
 .carousel-item {
-    display: none; /* Ocultos por defecto */
+    display: none; 
     flex-direction: column;
     align-items: center;
     width: 100%;
@@ -35,7 +21,7 @@
 }
 
 .carousel-item.active {
-    display: flex; /* Solo mostramos el activo */
+    display: flex; 
 }
 
 .nav-arrow {
@@ -121,10 +107,10 @@
     left: 14%;
 }
 
-/* --- AJUSTES DE MARCADORES (Responsive) --- */
+/* --- RESPONSIVE --- */
 
+/* Tablet (768px) */
 @media screen and (max-width: 768px){
-    /* En tablet quitamos el flex-grow para que no deje espacios raros */
     .carousel-container {
         flex-grow: 0;
         margin-top: 2rem;
@@ -142,7 +128,7 @@
     }
 }
 
-
+/* Móvil (600px) */
 @media screen and (max-width:600px){
     .valentine{
         top: 57%;

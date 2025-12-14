@@ -1,44 +1,54 @@
-/* =========================================
-   LÓGICA NUEVA RESEÑA (CORREGIDO V2)
-   Archivo: js/nueva_resena.js (o el nombre que le hayas puesto)
-   ========================================= */
-
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // 1. VERIFICAR SESIÓN Y PARÁMETROS
-    const loggedUser = sessionStorage.getItem('logged_user'); // "joseballs"
+    const loggedUser = sessionStorage.getItem('logged_user');
     const params = new URLSearchParams(window.location.search);
     const cityId = params.get('city');
 
-    // ERROR 1: No hay usuario -> Ir a login (Page 1)
     if (!loggedUser) {
         alert("Debes iniciar sesión para escribir una reseña.");
         window.location.href = 'page1.html';
         return;
     }
 
-    // ERROR 2: No hay ciudad -> Volver a tu perfil (Page 3)
-    // CAMBIO AQUÍ: Antes te mandaba a page1, ahora a page3.
     if (!cityId) {
         alert("Error: No se ha especificado la ciudad.");
         window.location.href = 'page3.html'; 
         return;
     }
 
-    // Mostrar nombre de la ciudad
     const cityNames = {
-        "valentine": "Valentine", "rhodes": "Rhodes", "strawberry": "Strawberry",
-        "blackwater": "Blackwater", "saint-denis": "Saint-Denis", "annesburg": "Annesburg",
-        "van-horn": "Van Horn", "tumbleweed": "Tumbleweed"
+        "valentine": "Valentine",
+        "rhodes": "Rhodes",
+        "strawberry": "Strawberry",
+        "blackwater": "Blackwater",
+        "saint-denis": "Saint-Denis",
+        "annesburg": "Annesburg",
+        "van-horn": "Van Horn",
+        "tumbleweed": "Tumbleweed"
     };
-    
+
+    const cityDisplayName = cityNames[cityId] || cityId;
+
     const cityNameEl = document.getElementById('city-target-name');
-    if(cityNameEl) {
-        cityNameEl.textContent = cityNames[cityId] || cityId;
+    if (cityNameEl) {
+        cityNameEl.textContent = cityDisplayName;
+    }
+
+    const bcEl = document.getElementById('review-breadcrumbs');
+    if (bcEl) {
+        let homeHref = 'page1.html';
+        if (loggedUser) {
+            homeHref = 'page3.html';
+        }
+
+        bcEl.innerHTML = `
+            <a href="${homeHref}">Home</a> &gt;
+            <span>Descubriendo ciudades</span> &gt;
+            <a href="cities.html?id=${encodeURIComponent(cityId)}">${cityDisplayName}</a> &gt;
+            <strong>Nueva reseña</strong>
+        `;  
     }
 
 
-    // 2. LÓGICA DE ESTRELLAS
     const stars = document.querySelectorAll('.star');
     let currentRating = 0;
 
@@ -63,20 +73,18 @@ document.addEventListener('DOMContentLoaded', () => {
             const value = parseInt(star.getAttribute('data-value'));
             if (value <= rating) {
                 star.classList.remove('fa-star-o');
-                star.classList.add('fa-star'); // Llena
+                star.classList.add('fa-star'); 
                 star.style.color = '#d4e157';
             } else {
                 star.classList.remove('fa-star');
-                star.classList.add('fa-star-o'); // Vacía
+                star.classList.add('fa-star-o'); 
                 star.style.color = '#ccc';
             }
         });
     }
 
-
-    // 3. LÓGICA DE ENVÍO
     const btnSubmit = document.getElementById('btn-submit');
-    if(btnSubmit) {
+    if (btnSubmit) {
         btnSubmit.addEventListener('click', () => {
             const text = document.getElementById('review-text').value.trim();
 
@@ -89,51 +97,41 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
-            // Crear objeto reseña
             const newReview = {
-                user: loggedUser, // "joseballs"
+                user: loggedUser,
                 stars: currentRating,
                 text: text,
                 date: new Date().toISOString()
             };
 
-            // Recuperar DB del LocalStorage
             let allReviews = {};
             try {
                 const storedReviews = localStorage.getItem('db_reviews');
                 if (storedReviews) {
                     allReviews = JSON.parse(storedReviews);
                 }
-            } catch(e) {
+            } catch (e) {
                 console.error("Error leyendo reseñas", e);
                 allReviews = {};
             }
-            
-            // Inicializar array si no existe
+
             if (!allReviews[cityId]) {
                 allReviews[cityId] = [];
             }
 
-            // Añadir reseña
             allReviews[cityId].push(newReview);
 
-            // Guardar cambios
             localStorage.setItem('db_reviews', JSON.stringify(allReviews));
 
-            // ÉXITO: Volver a la página de la ciudad para ver tu reseña
             alert("¡Reseña publicada con éxito!");
             window.location.href = `cities.html?id=${cityId}`;
         });
     }
 
-
-    // 4. BOTÓN CANCELAR
     const btnCancel = document.getElementById('btn-cancel');
-    if(btnCancel) {
+    if (btnCancel) {
         btnCancel.addEventListener('click', () => {
-            // Cancelar: Volver a la página de la ciudad
             window.location.href = `cities.html?id=${cityId}`;
         });
     }
-
 });

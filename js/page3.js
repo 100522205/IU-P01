@@ -1,10 +1,5 @@
-// page3.js -- gestiona la página del usuario logueado:
-// - muestra el nombre e imagen del usuario
-// - permite cerrar sesión
-// - gestiona los consejos
-// - gestiona los favoritos de ciudades
-
 const FAVORITES_STORAGE_KEY = 'favorites_by_user';
+const RECENT_STORAGE_KEY = 'recent_by_user';
 
 document.addEventListener('DOMContentLoaded', () => {
     const nameContainer = document.querySelector('.name_user h2');
@@ -13,14 +8,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const loggedUser = getLoggedUser();
 
-    // Mostrar nombre de usuario
     if (nameContainer && loggedUser) {
         nameContainer.textContent = loggedUser;
     }
 
     loadUserAvatar(loggedUser, avatarImg);
 
-    // Botón cerrar sesión
     if (cerrarBtn) {
         cerrarBtn.addEventListener('click', () => {
             try {
@@ -32,14 +25,15 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Inicializar consejos (cargar últimos y preparar formulario)
     initConsejos();
 
-    // Inicializar favoritos (corazones de las ciudades)
     initFavoriteHearts(loggedUser);
+    initRecentSection(loggedUser);
+    initCityVisitTracking(loggedUser);
+    
 });
 
-// ---------- UTILIDADES GENERALES ----------
+
 
 function getLoggedUser() {
     let logged = null;
@@ -71,13 +65,11 @@ function loadUserAvatar(username, imgElement) {
     }
 }
 
-// ---------- CONSEJOS ----------
 
 function initConsejos() {
     const form = document.forms['consejos_form'];
     if (!form) return;
 
-    // Cargar los últimos consejos al entrar
     try {
         const existing = localStorage.getItem('registered_consejos');
         if (existing) {
@@ -90,7 +82,6 @@ function initConsejos() {
         console.error('Error al cargar consejos:', e);
     }
 
-    // Escuchar envío del formulario
     form.addEventListener('submit', handleConsejo);
 }
 
@@ -141,7 +132,6 @@ function handleConsejo(event) {
         console.error('Error guardando consejos en localStorage:', e);
     }
 
-    // Limpiar formulario y actualizar listado
     form.reset();
     updateConsejosUI(lista);
 
@@ -168,10 +158,8 @@ function updateConsejosUI(consejos) {
     }
 }
 
-// ---------- FAVORITOS ----------
 
 function initFavoriteHearts(loggedUser) {
-    // Si por alguna razón no hay usuario, simplemente no hacemos nada aquí.
     if (!loggedUser) return;
 
     const cards = document.querySelectorAll('.cuadricula .carrusel_content');
@@ -188,7 +176,6 @@ function initFavoriteHearts(loggedUser) {
         const cityName = nameEl.textContent.trim();
         if (!cityName) return;
 
-        // Estado inicial: marcar en rojo si ya es favorito
         if (favorites.includes(cityName)) {
             heartIcon.classList.add('favorite');
             heartIcon.setAttribute('aria-pressed', 'true');
@@ -253,3 +240,134 @@ function toggleFavoriteForUser(cityName, icon, username, currentFavorites) {
     saveFavoritesForUser(username, favorites);
     return favorites;
 }
+
+
+
+function initRecentSection(loggedUser) {
+    const container = document.querySelector('.recent-list');
+    if (!container) return;
+
+    if (!loggedUser) {
+        container.innerHTML = '<p class="recent-empty">Inicia sesión para ver tus destinos recientes.</p>';
+        return;
+    }
+
+    renderRecentForUser(loggedUser, container);
+}
+
+function getRecentObject() {
+    try {
+        const raw = localStorage.getItem(RECENT_STORAGE_KEY);
+        if (!raw) return {};
+        const parsed = JSON.parse(raw);
+        return (parsed && typeof parsed === 'object') ? parsed : {};
+    } catch (e) {
+        console.error('Error leyendo recientes desde localStorage:', e);
+        return {};
+    }
+}
+
+function getRecentForUser(username) {
+    if (!username) return [];
+    const all = getRecentObject();
+    const list = all[username];
+    return Array.isArray(list) ? list : [];
+}
+
+function saveRecentForUser(username, list) {
+    if (!username) return;
+    const all = getRecentObject();
+    all[username] = list;
+    try {
+        localStorage.setItem(RECENT_STORAGE_KEY, JSON.stringify(all));
+    } catch (e) {
+        console.error('Error guardando recientes en localStorage:', e);
+    }
+}
+
+function addRecentVisitForUser(username, visit) {
+    if (!username || !visit || !visit.id) return;
+
+    let list = getRecentForUser(username);
+
+    list = list.filter(item => item.id !== visit.id);
+    list.unshift(visit);
+
+    if (list.length > 3) {
+        list = list.slice(0, 3);
+    }
+
+    saveRecentForUser(username, list);
+}
+
+function renderRecentForUser(username, container) {
+    const recents = getRecentForUser(username);
+
+    container.innerHTML = '';
+
+    if (!recents.length) {
+        const p = document.createElement('p');
+        p.className = 'recent-empty';
+        p.textContent = 'Todavía no has visitado ningún paquete.';
+        container.appendChild(p);
+        return;
+    }
+
+    recents.forEach(visit => {
+        const a = document.createElement('a');
+        a.className = 'recent-item';
+
+        a.href = visit.url || '#';
+
+        const img = document.createElement('img');
+        img.src = visit.image;
+        img.alt = visit.title || 'Destino reciente';
+        a.appendChild(img);
+
+        a.addEventListener('click', () => {
+            addRecentVisitForUser(username, {
+                id: visit.id,
+                title: visit.title,
+                image: visit.image,
+                url: visit.url
+            });
+        });
+
+        container.appendChild(a);
+    });
+}
+
+
+
+function initCityVisitTracking(loggedUser) {
+    if (!loggedUser) return; 
+
+    const cards = document.querySelectorAll('.cuadricula .carrusel_content');
+    if (!cards.length) return;
+
+    cards.forEach(card => {
+        const nameEl = card.querySelector('.text.name');
+        const imgEl = card.querySelector('img');
+        const actionEl = card.querySelector('.boton-ver-mas'); 
+
+        if (!nameEl || !imgEl || !actionEl) return;
+
+        const title = nameEl.textContent.trim();
+        const imageSrc = imgEl.getAttribute('src') || '';
+        const id = 'CITY_' + title.toUpperCase();
+        const url = actionEl.getAttribute('href') || '';
+
+        actionEl.addEventListener('click', () => {
+            addRecentVisitForUser(loggedUser, {
+                id: id,
+                title: title,
+                image: imageSrc,
+                url: url
+            });
+        });
+    });
+}
+
+
+
+
