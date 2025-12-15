@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados de Búsqueda</title>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
+    <script src="/js/resultados.js" type="module"></script>
+    
+    <link rel="stylesheet" href="style/styles.css">
+    <link rel="stylesheet" href="style/styles_buscador.css"> 
+    <link rel="stylesheet" href="style/styles_resultados.css">
+</head>
+<body>
+    <header>
+        <div class="header_izq izq titulo">Mochileros por el Oeste</div>
+        <nav class="navbar nav_header">
+            <a href="page1.html">Inicio</a>
+            <a href="buscador.html">Experiencias</a>
+            <a href="#">Consejos</a>
+            <a href="#">Foro</a>
+            <a href="#">Contacto</a>
+        </nav>
+        <div class="header_dcha">
+            <img src="images/diligencia.png" alt="Logo" class="logo">
+            <form>
+                <select id="language" name="language">
+                <option value="es">ES</option>
+                <option value="en">EN</option>
+                </select>
+            </form>
+        </div>
+    </header>
+
+    <main class="main_content">
+
+        <div class="layout-resultados">
+
+            <div class="breadcrumbs-box">
+                <a href="page1.html">INICIO</a> &gt; 
+                <a href="buscador.html">BUSCADOR</a> &gt; 
+                <strong>RESULTADOS</strong>
+            </div>
+            
+            <aside class="sidebar-filtros">
+                <h3>FILTRAR POR:</h3>
+                <div class="grupo-filtro">
+                    <h3>Presupuesto</h3>
+                    <div class="wrapper-slider">
+                        <div class="valores-slider">
+                            <span id="precio-min-txt">0</span>
+                            -
+                            <span id="precio-max-txt">200 $</span>
+                        </div>
+
+                        <div class="container-slider">
+                            <div class="slider-track"></div>
+                            <input type="range" min="0" max="200" value="0" id="slider-min">
+                            <input type="range" min="0" max="200" value="200" id="slider-max">
+                        </div>
+                    </div>
+                </div>
+                <div class="grupo-filtro">
+                    <h3>Entorno</h3>
+                    
+                    <label>
+                        <input type="radio" name="filtroEntorno" value="todos" checked>
+                        Todos
+                    </label>
+
+                    <label>
+                        <input type="radio" name="filtroEntorno" value="naturaleza">
+                        Naturaleza
+                    </label>
+                    
+                    <label>
+                        <input type="radio" name="filtroEntorno" value="ciudad">
+                        Ciudad
+                    </label>
+                </div>
+
+                <div class="grupo-filtro">
+                    <h3>Detalles</h3>
+                    <label>
+                        <input type="checkbox" id="filtroCancelacion">
+                        Cancelación Gratuita
+                    </label>
+                </div>
+            </aside>
+
+            <section class="lista-resultados">
+                <h2 id="titulo-busqueda">Resultados de tu búsqueda</h2>
+                
+                <div id="contenedor-resultados"></div>
+            </section>
+
+        </div>
+    </main>
+    <footer>
+        <div class="footer_left">
+            <div class="izq_negro">@ 2025 Mochileros por el Oeste</div>
+            <div class="centro navbar">
+                <a href="#">Sobre nosotros.</a>
+                <a href="#">Política de privacidad.</a>
+                <a href="#">Ayuda</a>
+            </div>
+        </div>
+        <div class="footer_right">
+            <div class="redes">
+                <i class="fa fa-youtube-play"></i>
+                <i class="fa fa-instagram"></i>
+                <i class="fa fa-twitter"></i>
+            </div>
+          
+            <form class="subscribe_form">
+                <div class="subs">       
+                    <label for="email">Email:</label>
+                    <input type="text" id="email" name="email">
+                </div>
+                <div>
+                    <input type="submit" id="Subs" name="Subscribe" value="Subscribe" class="subscribe_button">
+                </div>          
+            </form> 
+        </div>          
+    </footer>
+</body>
+</html>

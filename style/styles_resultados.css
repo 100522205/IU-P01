@@ -1,0 +1,348 @@
+/* =========================================
+   ESTILOS RESULTADOS - VERSIÓN FINAL PULIDA
+   ========================================= */
+
+html, body {
+height: auto !important;
+min-height: 100vh; /* Ocupa al menos la pantalla, pero crece si hace falta */
+overflow-x: hidden; /* Evita scroll lateral accidental */
+}
+
+/* Si tienes un contenedor principal (como .main_content), 
+   le quitamos la altura fija también */
+.main_content {
+    height: auto !important;
+    min-height: 0 !important; /* Deja que el contenido empuje */
+    display: block !important; /* A veces flex/grid globales estiran de más */
+}
+
+/* Aseguramos que nuestro layout no tenga márgenes locos abajo */
+.layout-resultados {
+    height: auto !important;
+}
+/* --- BREADCRUMBS --- */
+.breadcrumbs-box {
+    grid-column: 1 / -1; 
+    font-size: 1.5rem;
+    color: #555;
+    text-transform: uppercase;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #d4c5b0;
+    margin-bottom: 20px; /* Un poco más de margen aquí también */
+}
+
+.breadcrumbs-box a {
+    text-decoration: none;
+    color: #cb0101;
+    font-weight: bold;
+}
+
+.breadcrumbs-box a:hover {
+    text-decoration: underline;
+}
+
+/* --- LAYOUT PRINCIPAL (GRID) --- */
+.layout-resultados {
+    display: grid;
+    /* La columna filtros fija a 280px, el resto para resultados */
+    grid-template-columns: 280px 1fr; 
+    gap: 50px; /* MÁS ESPACIO entre la barra lateral y los resultados */
+    
+    /* CENTRADO Y ANCHURA */
+    max-width: 100%; /* Aumentado de 1200 a 1300 para que respire más */
+    width: 92%; /* Ocupa casi todo el ancho disponible */
+    margin: 0px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    align-items: start;
+}
+
+/* --- BARRA LATERAL (FILTROS) --- */
+.sidebar-filtros {
+    background-color: rgba(244, 241, 234, 0.95);
+    border: 2px solid #5a0000;
+    border-radius: 4px;
+    padding: 25px;
+    box-shadow: 4px 4px 0px rgba(90, 0, 0, 0.1);
+    position: sticky;
+    top: 20px;
+}
+
+.sidebar-filtros h3 {
+    margin-top: 0;
+    color: #000;
+    border-bottom: 2px solid #5a0000;
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+}
+
+.grupo-filtro {
+    margin-bottom: 25px;
+}
+
+.grupo-filtro label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0;
+    font-size: 0.95rem;
+    color: #333;
+}
+
+/* --- LISTA DE RESULTADOS (Derecha) --- */
+.lista-resultados {
+    display: flex;
+    flex-direction: column;
+    /* AQUÍ ESTÁ LA CLAVE DE LA SEPARACIÓN ENTRE TARJETAS */
+    gap: 20px; 
+}
+
+#contenedor-resultados {
+    display: flex;
+    flex-direction: column; /* Una debajo de otra */
+    gap: 10px; /* AQUI está la separación grande que buscas */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+}
+
+.lista-resultados h2 {
+    margin-top: 0;
+    font-size: 2rem; /* Título un poco más grande */
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    color: #2c2c2c;
+}
+
+/* --- TARJETA HORIZONTAL --- */
+.card-horizontal {
+    display: flex; 
+    background-color: #fcfbf9;
+    border: 1px solid #d4c5b0;
+    border-radius: 6px; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* Sombra más elegante */
+    
+    /* Altura mínima para que se vean grandes, pero que crezcan si hay mucho texto */
+    min-height: 260px; 
+    
+    overflow: hidden;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s;
+    position: relative;
+}
+
+.card-horizontal:hover {
+    transform: translateY(-5px); /* Sube un poco más al pasar el ratón */
+    box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+    border-color: #cb0101;
+}
+
+/* IMAGEN */
+.card-img-side {
+    width: 320px; /* IMAGEN MÁS ANCHA (antes 280px) */
+    flex-shrink: 0;
+    background-size: cover;
+    background-position: center;
+    border-right: 1px solid #d4c5b0;
+}
+
+/* INFO */
+.card-info-side {
+    flex: 1; /* Ocupa todo el resto */
+    padding: 25px 30px; /* Más relleno interior */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-header-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.card-info-side h3 {
+    margin: 0;
+    color: #1a1a1a;
+    font-size: 1.6rem; /* Título más grande */
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.precio-tag {
+    font-weight: bold;
+    font-size: 1.5rem;
+    white-space: nowrap;
+    margin-left: 15px;
+}
+
+.card-desc {
+    font-size: 1.05rem; /* Texto un pelín más grande para leer mejor */
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.acciones-card {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    margin-top: 15px;
+}
+
+.boton-ver-mas {
+    background-color: #cb0101;
+    color: white;
+    border: none;
+    padding: 12px 30px; /* Botón más grande */
+    font-size: 0.95rem;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: background 0.3s;
+    text-transform: uppercase;
+    border-radius: 2px;
+}
+
+.boton-ver-mas:hover {
+    background-color: #9a0000;
+}
+
+/* =========================================
+   RESPONSIVE (MEDIA QUERIES)
+   ========================================= */
+
+/* FASE 1: TABLETS Y PANTALLAS PEQUEÑAS (Menos de 950px) 
+   Quitamos la barra lateral para dar todo el espacio a las tarjetas */
+@media (max-width: 950px) {
+    .layout-resultados {
+        grid-template-columns: 1fr; /* Una sola columna */
+        gap: 30px;
+        width: 95%;
+    }
+    
+    .sidebar-filtros {
+        display: none; /* Ocultamos filtros (o podrías moverlos arriba) */
+    }
+    
+    /* La imagen se reduce un poco para equilibrar */
+    .card-img-side {
+        width: 260px; 
+    }
+}
+
+/* FASE 2: MÓVILES (Menos de 650px)
+   Cambiamos la tarjeta de Horizontal a Vertical */
+@media (max-width: 650px) {
+    .card-horizontal {
+        flex-direction: column; /* Apilar verticalmente */
+        height: auto; /* Altura automática */
+        min-height: auto;
+    }
+
+    .card-img-side {
+        width: 100%; /* La imagen ocupa todo el ancho */
+        height: 200px; /* Altura fija para la foto */
+        border-right: none;
+        border-bottom: 1px solid #d4c5b0;
+    }
+    
+    .card-info-side {
+        padding: 20px;
+    }
+    
+    .card-header-row {
+        margin-bottom: 10px;
+    }
+    
+    .card-info-side h3 {
+        font-size: 1.3rem;
+    }
+    
+    .precio-tag {
+        font-size: 1.2rem;
+    }
+    
+    /* El botón ocupa todo el ancho en móvil para ser fácil de pulsar */
+    .boton-ver-mas {
+        width: 100%;
+    }
+    /* === ESTILOS DEL SLIDER DOBLE === */
+.wrapper-slider {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.valores-slider {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    color: #cb0101; /* Rojo del tema */
+    margin-bottom: 10px;
+    font-family: 'Chinese Rocks', serif; /* Tu fuente */
+    font-size: 1.2rem;
+}
+
+.container-slider {
+    position: relative;
+    width: 100%;
+    height: 30px; /* Altura para contener los inputs */
+}
+
+/* La pista (track) gris de fondo */
+.slider-track {
+    width: 100%;
+    height: 5px;
+    background-color: #d5d5d5;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 5px;
+}
+
+/* Los inputs superpuestos */
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent; /* Fondo transparente clave */
+    pointer-events: none; /* Deja pasar clicks al de abajo... */
+    margin: 0;
+}
+
+/* ...excepto en la bolita (thumb), que sí debe recibir clicks */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 18px;
+    width: 18px;
+    border-radius: 50%;
+    background-color: #cb0101;
+    cursor: pointer;
+    pointer-events: auto; /* Reactivamos clicks aquí */
+    border: 2px solid #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    position: relative;
+    z-index: 10;
+}
+
+input[type="range"]::-moz-range-thumb {
+    height: 18px;
+    width: 18px;
+    border: none;
+    border-radius: 50%;
+    background-color: #cb0101;
+    cursor: pointer;
+    pointer-events: auto;
+    border: 2px solid #fff;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+}
