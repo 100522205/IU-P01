@@ -209,12 +209,12 @@ main.main-buscador .padding_carrusel {
 
 .cuadricula {
     display: grid;
-    /* Aumentamos un poco el mínimo (240px) para que en tablet (768px) 
-       salten a 2 columnas bien hechas en lugar de 3 apretadas */
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-    gap: 30px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 20px;
     width: 100%;
-    margin: 20px 0 50px 0; /* Margen inferior extra para proteger el footer */
+    margin:0px; /* Margen inferior extra para proteger el footer */
+    height: 100%; /* Permite que las tarjetas crezcan según su contenido */
 }
 
 .card-placeholder {
@@ -240,8 +240,7 @@ main.main-buscador .padding_carrusel {
 .img-placeholder {
     width: 100%;
     /* Altura fija para escritorio */
-    height: 180px; 
-    flex-shrink: 0; /* La imagen NUNCA se encoge */
+    height: 250px; 
     
     background-color: #ccc;
     background-size: cover;
@@ -256,7 +255,7 @@ main.main-buscador .padding_carrusel {
 }
 
 .info-placeholder {
-    padding: 20px 15px;
+    padding: 0px;
     text-align: center;
     
     /* Esto hace que el texto ocupe todo el espacio disponible */
@@ -288,9 +287,10 @@ main.main-buscador .padding_carrusel {
 }
 
 /* --- MEDIA QUERY: TABLETS (iPad, etc) --- */
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 768px) {
     .cuadricula {
         gap: 20px;
+        grid-template-columns: 1fr 1fr; /* 2 columnas en tablet */
     }
     
     .img-placeholder {
@@ -308,6 +308,8 @@ main.main-buscador .padding_carrusel {
         width: 100%;
         max-width: 400px; /* Ancho máximo para que no se vean gigantes */
         margin: 0 auto 30px auto; /* Centrado */
+        grid-template-columns: 1fr; /* 2 columnas en tablet */
+
     }
 
     .card-placeholder {
