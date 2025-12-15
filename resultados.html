@@ -1,7 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-<!DOCTYPE html>
-<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,7 +34,6 @@
     </header>
 
     <main class="main_content">
-
         <div class="layout-resultados">
 
             <div class="breadcrumbs-box">
@@ -44,18 +41,18 @@
                 <a href="buscador.html">BUSCADOR</a> &gt; 
                 <strong>RESULTADOS</strong>
             </div>
+
+            <h2 id="titulo-busqueda">Experiencias encontradas</h2>
             
             <aside class="sidebar-filtros">
-                <h3>FILTRAR POR:</h3>
+                <div class="sidebar-header">FILTROS</div>
+
                 <div class="grupo-filtro">
                     <h3>Presupuesto</h3>
                     <div class="wrapper-slider">
                         <div class="valores-slider">
-                            <span id="precio-min-txt">0</span>
-                            -
-                            <span id="precio-max-txt">200 $</span>
+                            <span id="precio-min-txt">0</span> - <span id="precio-max-txt">200 $</span>
                         </div>
-
                         <div class="container-slider">
                             <div class="slider-track"></div>
                             <input type="range" min="0" max="200" value="0" id="slider-min">
@@ -63,37 +60,21 @@
                         </div>
                     </div>
                 </div>
+
                 <div class="grupo-filtro">
                     <h3>Entorno</h3>
-                    
-                    <label>
-                        <input type="radio" name="filtroEntorno" value="todos" checked>
-                        Todos
-                    </label>
-
-                    <label>
-                        <input type="radio" name="filtroEntorno" value="naturaleza">
-                        Naturaleza
-                    </label>
-                    
-                    <label>
-                        <input type="radio" name="filtroEntorno" value="ciudad">
-                        Ciudad
-                    </label>
+                    <label><input type="radio" name="filtroEntorno" value="todos" checked> Todos</label>
+                    <label><input type="radio" name="filtroEntorno" value="naturaleza"> Naturaleza</label>
+                    <label><input type="radio" name="filtroEntorno" value="ciudad"> Ciudad</label>
                 </div>
 
                 <div class="grupo-filtro">
                     <h3>Detalles</h3>
-                    <label>
-                        <input type="checkbox" id="filtroCancelacion">
-                        Cancelación Gratuita
-                    </label>
+                    <label><input type="checkbox" id="filtroCancelacion"> Cancelación Gratuita</label>
                 </div>
             </aside>
 
             <section class="lista-resultados">
-                <h2 id="titulo-busqueda">Resultados de tu búsqueda</h2>
-                
                 <div id="contenedor-resultados"></div>
             </section>
 

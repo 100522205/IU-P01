@@ -2,6 +2,7 @@ const RECENT_STORAGE_KEY = 'recent_by_user';
 
 document.addEventListener('DOMContentLoaded', () => {
     const username = getLoggedUserFromSession();
+    initAutoFillUser(username);
     const pageName = window.location.pathname.split('/').pop(); 
 
     const PACKS_CONFIG = {
@@ -130,7 +131,81 @@ function parseCaducidad(dateString) {
 const regexCard = /^(visa|mastercard|amex)$/i;
 const regexTarjeta = /^(\d{13}|\d{15}|\d{16}|\d{19})$/;
 
+function initAutoFillUser(username) {
+    console.log("--- DEBUG START: Intentando autorellenar ---");
+    console.log("1. Usuario logueado recibido:", username);
 
+    if (!username) {
+        console.warn("❌ No hay usuario logueado, cancelando.");
+        return;
+    }
+
+    try {
+        // 1. Recuperamos la lista de todos los usuarios
+        const usersRaw = localStorage.getItem('registered_users');
+        console.log("2. String en localStorage (registered_users):", usersRaw);
+
+        if (!usersRaw) {
+            console.warn("No se encontró 'registered_users' en localStorage.");
+            return;
+        }
+
+        const users = JSON.parse(usersRaw);
+        console.log("3. Usuarios parseados (Array):", users);
+
+        if (!Array.isArray(users)) {
+            console.warn("La data recuperada no es un array.");
+            return;
+        }
+
+        // 2. Buscamos el objeto del usuario actual
+        // IMPORTANTE: Aquí veremos si las claves coinciden
+        const user = users.find(u => u.Usuario === username);
+        console.log("4. Usuario encontrado en la BBDD:", user);
+
+        if (user) {
+            const form = document.forms['compra'];
+            console.log("5. Formulario 'compra' encontrado:", form);
+
+            if (!form) {
+                console.warn("No se encontró el formulario con name='compra' en el HTML.");
+                return;
+            }
+
+            // 3. Rellenamos el campo Nombre
+            if (form['Nombre']) {
+                // Chequeamos qué propiedades tiene el objeto user realmente
+                console.log("   -> Propiedad .Nombre:", user.Nombre);
+                console.log("   -> Propiedad .Apellidos:", user.Apellidos);
+
+                const nombreCompleto = user.Apellidos ? `${user.Nombre} ${user.Apellidos}` : user.Nombre;
+                form['Nombre'].value = nombreCompleto;
+                console.log("Campo Nombre rellenado con:", nombreCompleto);
+            } else {
+                console.warn("No se encontró el input name='Nombre'");
+            }
+
+            // 4. Rellenamos el campo Correo
+            if (form['Correo']) {
+                console.log("   -> Propiedad .Correo:", user.Correo);
+                if (user.Correo) {
+                    form['Correo'].value = user.Correo;
+                    console.log("Campo Correo rellenado con:", user.Correo);
+                } else {
+                    console.warn("El usuario encontrado no tiene propiedad .Correo");
+                }
+            } else {
+                console.warn("No se encontró el input name='Correo'");
+            }
+        } else {
+            console.warn("No se encontró ningún usuario que coincida con:", username);
+            console.log(" -> Revisa si 'Usuario' es la clave correcta en el array del paso 3.");
+        }
+    } catch (e) {
+        console.error("CRASH: Error al intentar autorellenar:", e);
+    }
+    console.log("--- DEBUG END ---");
+}
 async function handleCompra(event) {
     event.preventDefault(); 
 
@@ -344,4 +419,5 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
+    
 });

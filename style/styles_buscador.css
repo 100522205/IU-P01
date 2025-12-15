@@ -1,20 +1,17 @@
-/* =========================================
-   STYLES_BUSCADOR.CSS - Limpio y Responsive
-   ========================================= */
 
-/* --- 1. ESTRUCTURA PRINCIPAL (CORREGIDA) --- */
+
 main.main-buscador {
     display: block !important; 
     grid-template-columns: none !important;
     height: auto !important;
     min-height: 100vh;
-    padding-bottom: 0; /* Quitamos padding extra que a veces molesta */
+    padding-bottom: 0; 
 }
 
 .main_content, .main-buscador {
     height: auto !important; 
     min-height: 100vh;
-    overflow-x: hidden; /* Evita scroll lateral */
+    overflow-x: hidden; 
     overflow-y: visible;
 }
 
@@ -22,33 +19,22 @@ main.main-buscador .main_container1 {
     display: flex !important;
     flex-direction: column;
     width: 100%;
-    /* EN ESCRITORIO: */
+
     height: 85vh; 
-    min-height: 600px; /* Evita que se aplaste en pantallas de portátiles bajitas */
+    min-height: 600px; 
 }
 
 main.main-buscador .main_container2 {
     width: 100%;
-    height: auto; /* IMPORTANTE: Deja que crezca lo que necesiten las tarjetas */
-    padding: 40px 5%; 
+    height: auto;
     box-sizing: border-box;
     display: block;
-    /* Aseguramos que este bloque tenga "peso" para empujar el footer */
     position: relative; 
     z-index: 10;
-    background-color: transparent; /* O el color de fondo de tu web si lo necesitas */
+    background-color: transparent;
 }
 
-/* --- AJUSTE CRUCIAL PARA MÓVIL Y TABLET --- */
-@media screen and (max-width: 900px) {
-    main.main-buscador .main_container1 {
-        /* En móvil NO usamos altura fija (vh), dejamos que el contenido mande.
-           Esto evita huecos gigantes o superposiciones. */
-        height: auto !important;
-        min-height: auto !important;
-        padding-bottom: 20px;
-    }
-}
+
 
 main.main-buscador .main_container2 h2 {
     text-align: center;
@@ -58,7 +44,7 @@ main.main-buscador .main_container2 h2 {
     letter-spacing: 2px;
 }
 
-/* --- 2. BREADCRUMBS --- */
+/* --- BREADCRUMBS --- */
 .breadcrumbs {
     padding: 1rem 3rem; 
     font-size: 1.5rem;
@@ -78,7 +64,7 @@ main.main-buscador .main_container2 h2 {
     color: #CB0101;
 }
 
-/* --- 3. SECCIÓN BUSCADOR --- */
+/* --- BUSCADOR --- */
 .search-section {
     background-color: #C8A272;
     padding: 1rem 2%;
@@ -154,7 +140,7 @@ main.main-buscador .main_container2 h2 {
 .autocomplete-items div:hover { background-color: #ddd; }
 
 
-/* --- 4. CARRUSEL --- */
+/* --- CARRUSEL --- */
 main.main-buscador .padding_carrusel {
     flex: 1; 
     position: relative;
@@ -205,7 +191,7 @@ main.main-buscador .padding_carrusel {
 .carrusel .next { right: 10px; }
 
 
-/* --- 5. CUADRÍCULA Y TARJETAS (SOLUCIÓN DEFINITIVA) --- */
+/* --- CUADRÍCULA Y TARJETAS --- */
 
 .cuadricula {
     display: grid;
@@ -213,8 +199,8 @@ main.main-buscador .padding_carrusel {
     grid-template-rows: 1fr;
     gap: 20px;
     width: 100%;
-    margin:0px; /* Margen inferior extra para proteger el footer */
-    height: 100%; /* Permite que las tarjetas crezcan según su contenido */
+    margin:0px;
+    height: 100%;
 }
 
 .card-placeholder {
@@ -226,7 +212,6 @@ main.main-buscador .padding_carrusel {
     display: flex;
     flex-direction: column;
     
-    /* ESCRITORIO: Altura igualada */
     height: 100%; 
     
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -239,7 +224,7 @@ main.main-buscador .padding_carrusel {
 
 .img-placeholder {
     width: 100%;
-    /* Altura fija para escritorio */
+
     height: 250px; 
     
     background-color: #ccc;
@@ -258,7 +243,6 @@ main.main-buscador .padding_carrusel {
     padding: 0px;
     text-align: center;
     
-    /* Esto hace que el texto ocupe todo el espacio disponible */
     flex-grow: 1; 
     
     display: flex;
@@ -286,52 +270,64 @@ main.main-buscador .padding_carrusel {
     font-weight: bold;
 }
 
-/* --- MEDIA QUERY: TABLETS (iPad, etc) --- */
 @media screen and (max-width: 768px) {
     .cuadricula {
         gap: 20px;
-        grid-template-columns: 1fr 1fr; /* 2 columnas en tablet */
+        grid-template-columns: 1fr 1fr;
     }
     
     .img-placeholder {
-        /* Un poco menos de imagen para equilibrar */
         height: 160px; 
     }
-}
 
-/* --- MEDIA QUERY: MÓVILES (<600px) --- */
+    main.main-buscador .main_container1 {
+        height: auto !important;
+        min-height: auto !important;
+        display: flex !important;
+        flex-direction: column;
+        padding-bottom: 20px;
+    }   
+
+    main.main-buscador .padding_carrusel {
+        display: block !important; 
+        width: auto;
+        min-height: 200px !important;
+        position: relative;
+    }
+
+
+    .carrusel, .carrusel-track, .carrusel-item {
+        height: 300px !important;
+    }
+}
 @media screen and (max-width: 600px) {
     .cuadricula {
-        display: flex; /* Cambiamos Grid por Flex en móvil para control total */
+        display: flex; 
         flex-direction: column;
         gap: 25px;
         width: 100%;
-        max-width: 400px; /* Ancho máximo para que no se vean gigantes */
-        margin: 0 auto 30px auto; /* Centrado */
-        grid-template-columns: 1fr; /* 2 columnas en tablet */
+        max-width: 400px;
+        margin: 0 auto 30px auto; 
+        grid-template-columns: 1fr; 
 
     }
 
     .card-placeholder {
-        /* EN MÓVIL: Altura automática. Esto es lo que arregla que "solo se vean fotos".
-           La tarjeta crecerá tanto como necesite el texto. */
         height: auto !important; 
         min-height: auto !important;
     }
 
     .img-placeholder {
-        /* Imagen panorámica en móvil */
         height: 160px; 
     }
     
     .info-placeholder {
-        /* Forzamos padding para que el texto respire */
         padding: 20px; 
-        display: block; /* Bloque normal en vez de flex para evitar colapsos */
+        display: block;
     }
     
     .info-placeholder h3 {
         margin-bottom: 5px;
-        font-size: 1.4rem; /* Texto grande y legible */
+        font-size: 1.4rem;
     }
 }

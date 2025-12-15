@@ -44,21 +44,21 @@ window.realizarBusqueda = function() {
     const lugar = inputLugar.value;
     const fecha = inputFecha.value;
     
-    // 1. Validar que haya lugar
+    // Validar lugar
     if(lugar === "") {
         alert("¡Por favor, elige un destino forastero!");
         inputLugar.focus(); // Pone el cursor en el input
         return; // Detiene la función
     }
     
-    // 2. Validar que haya fecha (NUEVO)
+    // Validar fecha
     if(fecha === "") {
         alert("¡No puedes viajar sin saber cuándo! Elige una fecha.");
-        inputFecha.focus(); // Pone el cursor en la fecha (abre el calendario en algunos navegadores)
-        return; // Detiene la función
+        inputFecha.focus();
+        return;
     }
     
-    // 3. Si todo está bien, guardamos y navegamos
+    // Si todo está bien, guardamos y navegamos
     localStorage.setItem("busquedaLugar", lugar);
     localStorage.setItem("busquedaFecha", fecha);
     
@@ -70,8 +70,8 @@ window.realizarBusqueda = function() {
 // === LÓGICA CARRUSEL ===
 const track = document.querySelector('.carrusel-track');
 const slides = Array.from(track.children);
-const nextButton = document.querySelector('.next'); // Selecciona por clase
-const prevButton = document.querySelector('.prev'); // Selecciona por clase
+const nextButton = document.querySelector('.next'); 
+const prevButton = document.querySelector('.prev'); 
 let currentIndex = 0;
 
 // Mover al slide
