@@ -145,7 +145,7 @@ main > aside {
 }
 .text {
   position: absolute;
-  color: white;
+  color: rgb(0, 0, 0);
   font-size: 80%;
 }
 .background {

@@ -70,7 +70,6 @@
                     <p>Tipo de tarjeta</p>
                     <div>
                         <select id="card" name="card">
-                        <option value=""></option>
                         <option value="visa">visa</option>
                         <option value="mastercard">mastercard</option>
                         <option value="amex">american express</option>
@@ -102,9 +101,9 @@
                             min="0"
                             step="1"
                             value="0">
+                        <div id="contenedor_acompanantes" class="contenedor-acompanantes"> </div>
                     </div>
                     
-                    <div id="contenedor_acompanantes" class="contenedor-acompanantes"> </div>
 
                     <div class="bloque-opcion">
                         <label>
@@ -122,17 +121,7 @@
                     </div>
 
                     <div class="bloque-opcion">
-                        <label for="cantidad_acompanantes">Número de acompañantes:</label>
-                        <input
-                            type="number"
-                            id="cantidad_acompanantes"
-                            name="cantidad_acompanantes"
-                            min="0"
-                            step="1"
-                            value="0">
-                        <div id="contenedor_acompanantes" class="contenedor-acompanantes"></div>
-
-                                                <label>
+                        <label>
                             <input type="checkbox" id="tiene_alergias" name="tiene_alergias">
                             Alguna intolerancia o alergia
                         </label>
