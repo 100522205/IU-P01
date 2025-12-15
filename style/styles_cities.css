@@ -6,15 +6,13 @@ body {
 }
 
 .breadcrumbs {
-    background-color: transparent;
     padding: 1rem 3rem; 
-    font-size: 1.2rem;
+    font-size: 1.5rem;
+    color: #4a3b2a; 
     font-family: "Chinese Rocks", sans-serif;
-    color: black;
-    text-shadow: 1px 1px 0px rgba(255, 255, 255, 0.4);
-    background: rgba(200, 162, 114, 0.15);
-    backdrop-filter: blur(2px);
-    letter-spacing: 0.05rem;
+    background-color: #C8A272; 
+    margin-bottom: 0;
+    text-transform: uppercase; 
 }
 
 .breadcrumbs a {
