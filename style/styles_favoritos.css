@@ -14,11 +14,15 @@ body {
 }
 
 .breadcrumbs {
-    align-self: flex-start;
-    margin-left: 5%;
-    margin-bottom: 0.5rem;
-    font-weight: bold;
+    padding: 1rem 3rem; 
+    font-size: 1.5rem;
+    color: #4a3b2a; 
+    font-family: "Chinese Rocks", sans-serif;
+    background-color: #C8A272; 
+    margin-bottom: 0;
+    text-transform: uppercase; 
 }
+
 
 .breadcrumbs a {
     color: #000;
